@@ -80,18 +80,32 @@ public class BillOfMaterial {
         return materialList;
     }
     
-    public double Sinus(double sideA, double VinkelA, double vinkelC)
+    public double Sinus(double sideA, double vinkelB)
     {
-        return (sideA * Math.sin(vinkelC)) / (Math.sin(VinkelA));
+        double vinkelC = 90;
+        double vinkelA = 180 - 90 - vinkelB;
+        return (sideA * Math.sin(vinkelC)) / (Math.sin(vinkelA));
     }
     
-    public void roof(int width, int length, int height){
-        double lengthSpace = length / 0.89;
-        double angleSpace;
+    public void roof(double width, double length, double height, double vinkel){
+        int lengthSpace = (int) (length / 89);
+        double lengthLeft = length % 89;
+        double SinusLength = Sinus(width/2, 20);
+        int angleSpace = (int) (SinusLength / 30.7);
+        double angleLeft = SinusLength % 30.7;
+        
+        materialList.add(new Material("Length Space", "Wood", 10, 10, length, lengthSpace +1, 15));
+        materialList.add(new Material("Angle Space", "Wood", 10, 10, SinusLength, lengthSpace +1, 15));
+        
+//        System.out.println(lengthSpace);
+//        System.out.println(lengthLeft);
+//        System.out.println(angleSpace);
+//        System.out.println(angleLeft);
     }
     
     public static void main(String[] args) {
         BillOfMaterial billOfMaterial = new BillOfMaterial();
+        billOfMaterial.roof(200, 500, 300, 20);
         billOfMaterial.CreateBillOfMaterial(300, 300, 1500);
         List<Material> materialList = billOfMaterial.getBillOfMaterial();
         for(int i = 0; i < materialList.size(); i++)
