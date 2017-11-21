@@ -44,7 +44,11 @@ public class UserMapper {
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
                 int id = rs.getInt( "id" );
-                User user = new User( id, email, password );
+                String firstName = rs.getString("firstname");
+                String lastName = rs.getString("lastname");
+                String telephone = rs.getString("telephone");
+                String address = rs.getString("address");
+                User user = new User( id, email, password, firstName, lastName, telephone, address );
                 return user;
             } else {
                 throw new FogProjectException( "Could not validate user" );
