@@ -85,6 +85,11 @@ public class BillOfMaterial {
         return (sideA * Math.sin(vinkelC)) / (Math.sin(VinkelA));
     }
     
+    public void roof(int width, int length, int height){
+        double lengthSpace = length / 0.89;
+        double angleSpace;
+    }
+    
     public static void main(String[] args) {
         BillOfMaterial billOfMaterial = new BillOfMaterial();
         billOfMaterial.CreateBillOfMaterial(300, 300, 1500);
