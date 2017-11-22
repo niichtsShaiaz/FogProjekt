@@ -79,9 +79,13 @@ public class BillOfMaterial {
     {
         pools(height, length);
         beams(width, height, length);
-        if(roof)
-            materialList.add(roofSpær(width, 20));
+        if(roof){
+            int angle = 20;
+            materialList.add(roofSpær(width, angle));
             materialList.add(roofLægter(length));
+            materialList.add(roofSten(width, length, angle));
+            materialList.add(roofRygSten(length));
+        }
         if(shed){}
     }
     
@@ -114,7 +118,6 @@ public class BillOfMaterial {
         double SinusLength = Sinus(width/2, angle);
         int spærQty = (int) (SinusLength / 30.7);
         double angleLeft = SinusLength % 30.7;
-        
         return new Material("Spær", "Wood", 10, 10, SinusLength, spærQty*2, 15);
     }
     
@@ -122,6 +125,18 @@ public class BillOfMaterial {
         int lægterQty = (int) (length / 89);
         double lengthLeft = length % 89;
         return new Material("Lægter", "Wood", 10, 10, length, lægterQty*2, 15);
+    }
+    private Material roofSten(double width, double length, double angle){
+        double SinusLength = Sinus(width/2, angle);
+        int spærQty = (int) (SinusLength / 30.7);
+        int tagStensBrede = 30;
+        int tagStenQty = (int) ((length / tagStensBrede) * (spærQty) + 6);
+        return new Material("Tagsten", "Sten", tagStensBrede, 0, 35, tagStenQty*2, 15);
+    }
+    private Material roofRygSten(double length){
+        int rygTagStensLængde = 40;
+        int rygTagStensQty = (int) (length / rygTagStensLængde);
+        return new Material("Rygsten", "Sten", 20, 0, rygTagStensLængde, rygTagStensQty, 15);
     }
     
     public static void main(String[] args) {
