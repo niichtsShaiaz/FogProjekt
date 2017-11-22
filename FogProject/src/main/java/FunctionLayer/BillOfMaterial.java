@@ -127,8 +127,8 @@ public class BillOfMaterial {
     
     public static void main(String[] args) {
         BillOfMaterial billOfMaterial = new BillOfMaterial();
-        billOfMaterial.roof(200, 500, 300, 20);
-        billOfMaterial.CreateBillOfMaterial(300, 300, 1500);
+        //billOfMaterial.roof(200, 500, 300, 20);
+        billOfMaterial.createBillOfMaterial(300, 300, 540, true, false, 0);
         List<Material> materialList = billOfMaterial.getBillOfMaterial();
         for(int i = 0; i < materialList.size(); i++)
         {
