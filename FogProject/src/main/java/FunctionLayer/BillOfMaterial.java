@@ -75,19 +75,41 @@ public class BillOfMaterial {
         }
     }
     
+    public void createBillOfMaterial(double width, double height, double length, boolean roof, boolean shed, double shedLength)
+    {
+        pools(height, length);
+        beams(width, height, length);
+        if(roof)
+            roof(width, length, height, length);
+        if(shed){}
+    }
+    
+    private void pools(double height, double length)
+    {
+        int i = 4;
+        i += (length - 80 - 30) / 275;
+        materialList.add(new Material("trykimp.	Stolpe", "Stolper nedgraves 90 cm. i jord", 0.97, height + 90, 0.97, i, 50));
+        
+    }
+    
+    private void beams(double width, double height, double length)
+    {
+        materialList.add(new Material("?", "?", 0, 0, length + 80 + 30, 4, 50));
+    }
+    
     public List<Material> getBillOfMaterial()
     {
         return materialList;
     }
     
-    public double Sinus(double sideA, double vinkelB)
+    private double Sinus(double sideA, double vinkelB)
     {
         double vinkelC = 90;
         double vinkelA = 180 - 90 - vinkelB;
         return (sideA * Math.sin(vinkelC)) / (Math.sin(vinkelA));
     }
     
-    public void roof(double width, double length, double height, double vinkel){
+    private void roof(double width, double length, double height, double vinkel){
         int lengthSpace = (int) (length / 89);
         double lengthLeft = length % 89;
         double SinusLength = Sinus(width/2, 20);
