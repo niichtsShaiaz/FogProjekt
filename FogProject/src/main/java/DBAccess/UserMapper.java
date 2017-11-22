@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class UserMapper {
     
-    public static void createUser(String email, String password) throws FogProjectException{
+    public static void Register(String email, String password) throws FogProjectException{
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO user (email, password) VALUES (?, ?);";
