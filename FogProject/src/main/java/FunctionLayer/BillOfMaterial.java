@@ -80,7 +80,8 @@ public class BillOfMaterial {
         pools(height, length);
         beams(width, height, length);
         if(roof)
-            roof(width, length, height, length);
+            materialList.add(roofSpær(width, 20));
+            materialList.add(roofLægter(length));
         if(shed){}
     }
     
@@ -109,20 +110,18 @@ public class BillOfMaterial {
         return (sideA * Math.sin(vinkelC)) / (Math.sin(vinkelA));
     }
     
-    private void roof(double width, double length, double height, double vinkel){
-        int lengthSpace = (int) (length / 89);
-        double lengthLeft = length % 89;
-        double SinusLength = Sinus(width/2, 20);
-        int angleSpace = (int) (SinusLength / 30.7);
+    private Material roofSpær(double width, double angle){
+        double SinusLength = Sinus(width/2, angle);
+        int spærQty = (int) (SinusLength / 30.7);
         double angleLeft = SinusLength % 30.7;
         
-        materialList.add(new Material("Length Space", "Wood", 10, 10, length, lengthSpace +1, 15));
-        materialList.add(new Material("Angle Space", "Wood", 10, 10, SinusLength, lengthSpace +1, 15));
-        
-//        System.out.println(lengthSpace);
-//        System.out.println(lengthLeft);
-//        System.out.println(angleSpace);
-//        System.out.println(angleLeft);
+        return new Material("Spær", "Wood", 10, 10, SinusLength, spærQty*2, 15);
+    }
+    
+    private Material roofLægter(double length){
+        int lægterQty = (int) (length / 89);
+        double lengthLeft = length % 89;
+        return new Material("Lægter", "Wood", 10, 10, length, lægterQty*2, 15);
     }
     
     public static void main(String[] args) {
