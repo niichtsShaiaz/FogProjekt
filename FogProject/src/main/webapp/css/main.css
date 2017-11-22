@@ -6,5 +6,7 @@
     height: 100%; }
     * body #wrapper h1 {
       text-align: center; }
+    * body #wrapper form {
+      margin-top: 20px; }
 
 /*# sourceMappingURL=main.css.map */

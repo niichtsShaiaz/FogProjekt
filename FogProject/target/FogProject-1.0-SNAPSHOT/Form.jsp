@@ -7,22 +7,19 @@
         <title>Form</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link href="css/styling.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         
         <h1> Velkommen! Indtast dine mål</h1>
-        Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.
-        <br>
-        Tilbud og skitsetegning fremsendes med post hurtigst muligt.
-        <br>
-        Ved bestilling medfølger standardbyggevejledning.
-        <br>
-        Udfyld nedenstående omhyggeligt og klik på "Bestil tilbud"
-        <br>
-        <br>
-        Alle mål er i centimeter
+        <p>Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.</p>
+        <p>Tilbud og skitsetegning fremsendes med post hurtigst muligt.</p>
+        <p>Ved bestilling medfølger standardbyggevejledning.</p>
+        <p>Udfyld nedenstående omhyggeligt og klik på "Bestil tilbud"</p>
+        <p>Alle mål er i centimeter</p>
+
         <form name="Form" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="login">
+            <input type="hidden" name="command" value="carport">
             
             <p>
                 <Label for="height">Højde:</label>
