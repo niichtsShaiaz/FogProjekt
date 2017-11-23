@@ -48,7 +48,7 @@ public class UserMapper {
                 String lastName = rs.getString("lastname");
                 String telephone = rs.getString("telephone");
                 String address = rs.getString("address");
-                User user = new User( id, email, password, firstName, lastName, telephone, address );
+                User user = new User( id, email, firstName, lastName, telephone, address );
                 return user;
             } else {
                 throw new FogProjectException( "Could not validate user" );

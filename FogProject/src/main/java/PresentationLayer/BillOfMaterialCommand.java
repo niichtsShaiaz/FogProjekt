@@ -9,7 +9,7 @@ package PresentationLayer;
 import FunctionLayer.FogProjectException;
 import FunctionLayer.User;
 import FunctionLayer.BillOfMaterial;
-import FunctionLayer.BoMFacade;
+import FunctionLayer.OrderFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

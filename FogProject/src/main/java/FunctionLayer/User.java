@@ -15,17 +15,15 @@ import java.util.List;
 public class User {
     private int id;
     private String email;
-    private String password;
     private String firstName;
     private String lastName;
     private String telephone;
     private String address;
     private List<Order> orderList = new ArrayList<>();
     
-    public User(int id, String email, String password, String firstName, String lastName, String telephone, String address) {
+    public User(int id, String email, String firstName, String lastName, String telephone, String address) {
         this.id = id;
         this.email = email;
-        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
@@ -38,10 +36,6 @@ public class User {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public String getFirstName() {
@@ -69,7 +63,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName + ", lastName=" + lastName + ", telephone=" + telephone + ", address=" + address + '}';
+        return "User{" + "id=" + id + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + ", telephone=" + telephone + ", address=" + address + '}';
     }
     
     

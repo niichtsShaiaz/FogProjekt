@@ -12,9 +12,11 @@ import java.util.List;
  *
  * @author Shxnna
  */
-public class BoMFacade {
-    public static void createOrder(Order order) throws FogProjectException
+public class OrderFacade {
+    public static void createOrder(double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength) throws FogProjectException
     {
+        User user = null;//skal slettes når login og session virker
+        Order order = new Order(0, width, lenght, roof, angel, shed, shedWidth, shedLength, user);
         OrderMapper.CreateOrder(order);
         
     }

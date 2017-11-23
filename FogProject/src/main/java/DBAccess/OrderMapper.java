@@ -8,6 +8,7 @@ package DBAccess;
 import FunctionLayer.BillOfMaterial;
 import FunctionLayer.FogProjectException;
 import FunctionLayer.Order;
+import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,11 +37,28 @@ public class OrderMapper {
             List<Order> orders = new ArrayList<>();
             Connection con = Connector.connection();
             Statement stm = con.createStatement();
-            String sql = "SELECT order_id, order_length, order_width, order_roof, order_angel, order_shed, order_shedwidth, order_shedlength, fk_iser_id FROM order ORDER BY order_id DESC";
+            String sql = "SELECT order_id, order_length, order_width, order_roof, order_angel, order_shed, order_shedwidth, order_shedlength, fk_iser_id, user.id, user.email, user.firstname, user.lastername, user.telephone, user.address FROM order INNER JOIN user on fk_user_id = user.id ORDER BY order_id DESC";
             ResultSet rs = stm.executeQuery(sql);
             while(rs.next())
             {
-                orders.add(new Order(rs.getInt("order_id"), rs.getDouble("order_width"), rs.getDouble("order_length"), rs.getBoolean("order_roof"), rs.getDouble("order_angel"), rs.getBoolean("order_shed"), rs.getDouble("order_shedwidth"), rs.getDouble("order_shedlength")));
+                orders.add(
+                        new Order(
+                                rs.getInt("order_id"),
+                                rs.getDouble("order_width"), 
+                                rs.getDouble("order_length"), 
+                                rs.getBoolean("order_roof"), rs.getDouble("order_angel"), 
+                                rs.getBoolean("order_shed"), rs.getDouble("order_shedwidth"), 
+                                rs.getDouble("order_shedlength"), 
+                                new User(
+                                        rs.getInt("user.id"), 
+                                        rs.getString("user.email"), 
+                                        rs.getString("user.firstname"), 
+                                        rs.getString("user.lastname"), 
+                                        rs.getString("user.telephone"), 
+                                        rs.getString("user.address")
+                                )
+                            )
+                        );
             }
             return orders;
         } catch (SQLException | ClassNotFoundException ex)

@@ -24,7 +24,7 @@ public class Order
     private double shedWidth;
     private double shedLength;
 
-    public Order(int id, double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength)
+    public Order(int id, double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, User user)
     {
         this.id = id;
         this.width = width;
