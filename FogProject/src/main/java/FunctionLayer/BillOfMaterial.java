@@ -23,7 +23,7 @@ public class BillOfMaterial {
 
 
     
-    public void CreateBillOfMaterial(double width, double hight, double length)
+    public void CreateBillOfMaterial01(double width, double hight, double length)
     {
         double tmpWidth = width;
         double tmpHight = hight;
@@ -92,9 +92,10 @@ public class BillOfMaterial {
         
     }
     
+    //remme
     private void beams(double width, double height, double length)
     {
-        materialList.add(new Material("?", "?", 0, 0, length + 80 + 30, 4, 50));
+        materialList.add(new Material("?", "?", 0, 0, length + 80 + 30, 2, 50));
     }
     
     public List<Material> getBillOfMaterial()
@@ -128,7 +129,7 @@ public class BillOfMaterial {
     public static void main(String[] args) {
         BillOfMaterial billOfMaterial = new BillOfMaterial();
         billOfMaterial.roof(200, 500, 300, 20);
-        billOfMaterial.CreateBillOfMaterial(300, 300, 1500);
+        billOfMaterial.createBillOfMaterial(300, 300, 540, true, false, 0);
         List<Material> materialList = billOfMaterial.getBillOfMaterial();
         for(int i = 0; i < materialList.size(); i++)
         {
