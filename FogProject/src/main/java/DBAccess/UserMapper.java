@@ -36,8 +36,7 @@ public class UserMapper {
     public static User login( String email, String password ) throws FogProjectException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT id FROM user "
-                    + "WHERE email=? AND password=?";
+            String SQL = "SELECT id, email, password, firstname, lastname, telepone, address FROM user WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
             ps.setString( 2, password );
@@ -51,7 +50,8 @@ public class UserMapper {
                 User user = new User( id, email, firstName, lastName, telephone, address );
                 return user;
             } else {
-                throw new FogProjectException( "Could not validate user" );
+                return null;
+                //throw new FogProjectException( "Could not validate user" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new FogProjectException(ex.getMessage());

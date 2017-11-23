@@ -18,7 +18,7 @@ Author     : ezl
         <div id="wrapper">
             <jsp:include page="includes/menu.jsp" />
             <h1>Login</h1>
-            <form action="" method="post">
+            <form action="FrontController" method="post">
                 <input type="hidden" name="command" value="Login">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
