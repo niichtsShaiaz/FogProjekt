@@ -6,15 +6,22 @@
 package FunctionLayer;
 
 import DBAccess.OrderMapper;
+import java.util.List;
 
 /**
  *
  * @author Shxnna
  */
 public class BoMFacade {
-    public static void createOrder(BillOfMaterial billOfMaterial) throws FogProjectException
+    public static void createOrder(Order order) throws FogProjectException
     {
-        OrderMapper.CreateOrder(billOfMaterial);
+        OrderMapper.CreateOrder(order);
         
     }
+    
+    public static List<Order> getAllOrders() throws FogProjectException
+    {
+        return OrderMapper.getAllOrders();
+    }
+    
 }

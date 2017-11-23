@@ -15,10 +15,124 @@ public class Order
 {
     private int id;
     private BillOfMaterial billOfMaterial;
-    
+    private User user;
+    private double width;
+    private double lenght;
+    private boolean roof;
+    private double angel;
+    private boolean shed;
+    private double shedWidth;
+    private double shedLength;
+
+    public Order(int id, double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength)
+    {
+        this.id = id;
+        this.width = width;
+        this.lenght = lenght;
+        this.roof = roof;
+        this.angel = angel;
+        this.shed = shed;
+        this.shedWidth = shedWidth;
+        this.shedLength = shedLength;
+        
+        //create bill of material here
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
     public BillOfMaterial getBillOfMaterial()
     {
         return billOfMaterial;
     }
+
+    public User getUser()
+    {
+        return user;
+    }
+
+    public void setUser(User user)
+    {
+        this.user = user;
+    }
+
+    public double getWidth()
+    {
+        return width;
+    }
+
+    public void setWidth(double width)
+    {
+        this.width = width;
+    }
+
+    public double getLenght()
+    {
+        return lenght;
+    }
+
+    public void setLenght(double lenght)
+    {
+        this.lenght = lenght;
+    }
+
+    public boolean getRoof()
+    {
+        return roof;
+    }
+
+    public void setRoof(boolean roof)
+    {
+        this.roof = roof;
+    }
+
+    public double getAngel()
+    {
+        return angel;
+    }
+
+    public void setAngel(double angel)
+    {
+        this.angel = angel;
+    }
+
+    public boolean getShed()
+    {
+        return shed;
+    }
+
+    public void setShed(boolean shed)
+    {
+        this.shed = shed;
+    }
+
+    public double getShedWidth()
+    {
+        return shedWidth;
+    }
+
+    public void setShedWidth(double shedWidth)
+    {
+        this.shedWidth = shedWidth;
+    }
+
+    public double getShedLength()
+    {
+        return shedLength;
+    }
+
+    public void setShedLength(double shedLength)
+    {
+        this.shedLength = shedLength;
+    }
+    
+    
     
 }

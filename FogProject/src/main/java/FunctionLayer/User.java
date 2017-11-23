@@ -5,6 +5,9 @@
  */
 package FunctionLayer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Jbakke
@@ -17,7 +20,7 @@ public class User {
     private String lastName;
     private String telephone;
     private String address;
-    private Order order;
+    private List<Order> orderList = new ArrayList<>();
     
     public User(int id, String email, String password, String firstName, String lastName, String telephone, String address) {
         this.id = id;
@@ -57,11 +60,11 @@ public class User {
         return address;
     }
     
-    public Order getOrder(){ return order;}
+    public List<Order> getOrderList(){ return orderList;}
     
-    public void setOrder(Order order)
+    public void addOrder(Order order)
     {
-        this.order = order;
+        orderList.add(order);
     }
 
     @Override
