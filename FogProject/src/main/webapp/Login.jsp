@@ -19,13 +19,14 @@ Author     : ezl
             <jsp:include page="includes/menu.jsp" />
             <h1>Login</h1>
             <form action="" method="post">
+                <input type="hidden" name="command" value="Login">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control">
+                    <input type="email" name="email" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" placeholder="********">
+                    <input type="password" name="password" class="form-control" placeholder="********">
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
