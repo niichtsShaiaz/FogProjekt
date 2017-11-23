@@ -103,7 +103,7 @@ public class BillOfMaterial {
         materialList.add(new Material("?", "?", 0, 0, length + 80 + 30, 2, 50));
     }
     
-    public List<Material> getBillOfMaterial()
+    public List<Material> getBillOfMaterialList()
     {
         return materialList;
     }
@@ -143,7 +143,7 @@ public class BillOfMaterial {
     public static void main(String[] args) {
         BillOfMaterial billOfMaterial = new BillOfMaterial();
         billOfMaterial.createBillOfMaterial(300, 300, 540, true, false, 0);
-        List<Material> materialList = billOfMaterial.getBillOfMaterial();
+        List<Material> materialList = billOfMaterial.getBillOfMaterialList();
         for(int i = 0; i < materialList.size(); i++)
         {
             Material material = materialList.get(i);

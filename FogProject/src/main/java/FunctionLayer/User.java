@@ -17,7 +17,8 @@ public class User {
     private String lastName;
     private String telephone;
     private String address;
-
+    private Order order;
+    
     public User(int id, String email, String password, String firstName, String lastName, String telephone, String address) {
         this.id = id;
         this.email = email;
@@ -54,6 +55,13 @@ public class User {
 
     public String getAddress() {
         return address;
+    }
+    
+    public Order getOrder(){ return order;}
+    
+    public void setOrder(Order order)
+    {
+        this.order = order;
     }
 
     @Override
