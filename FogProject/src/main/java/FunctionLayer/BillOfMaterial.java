@@ -81,8 +81,8 @@ public class BillOfMaterial {
         beams(width, height, length);
         if(roof){
             int angle = 20;
-            materialList.add(roofSpær(width, angle));
-            materialList.add(roofLægter(length));
+            materialList.add(roofSpær(width, length, angle));
+            materialList.add(roofLægter(width, length));
             materialList.add(roofSten(width, length, angle));
             materialList.add(roofRygSten(length));
         }
@@ -114,16 +114,16 @@ public class BillOfMaterial {
         return (sideA * Math.sin(vinkelC)) / (Math.sin(vinkelA));
     }
     
-    private Material roofSpær(double width, double angle){
+    private Material roofSpær(double width, double length, double angle){
         double SinusLength = Sinus(width/2, angle);
-        int spærQty = (int) (SinusLength / 30.7);
-        double angleLeft = SinusLength % 30.7;
+        int spærQty = (int) (length / 89);
+        double angleLeft = SinusLength % 89;
         return new Material("Spær", "Wood", 10, 10, SinusLength, spærQty*2, 15);
     }
-    
-    private Material roofLægter(double length){
-        int lægterQty = (int) (length / 89);
-        double lengthLeft = length % 89;
+    //30.7     89
+    private Material roofLægter(double width, double length){
+        int lægterQty = (int) (width / 30.7);
+        double lengthLeft = length % 30.7;
         return new Material("Lægter", "Wood", 10, 10, length, lægterQty*2, 15);
     }
     private Material roofSten(double width, double length, double angle){
