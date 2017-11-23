@@ -16,7 +16,6 @@ Author     : ezl
     </head>
     <body>
         <div id="wrapper">
-            <jsp:include page="includes/menu.jsp" />
             <h1>Registration</h1>
             <form action="" method="post">
                 <div class="form-group">
