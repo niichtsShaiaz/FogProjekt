@@ -37,7 +37,7 @@ public class OrderMapper {
             List<Order> orders = new ArrayList<>();
             Connection con = Connector.connection();
             Statement stm = con.createStatement();
-            String sql = "SELECT order_id, order_length, order_width, order_roof, order_angel, order_shed, order_shedwidth, order_shedlength, fk_iser_id, user.id, user.email, user.firstname, user.lastername, user.telephone, user.address FROM order INNER JOIN user on fk_user_id = user.id ORDER BY order_id DESC";
+            String sql = "SELECT order_id, order_length, order_width, order_roof, order_angel, order_shed, order_shedwidth, order_shedlength, fk_user_id, user.id, user.email, user.firstname, user.lastname, user.telephone, user.address FROM `order` INNER JOIN user on fk_user_id = user.id ORDER BY order_id DESC";
             ResultSet rs = stm.executeQuery(sql);
             while(rs.next())
             {
@@ -71,7 +71,7 @@ public class OrderMapper {
     public static void CreateOrder(Order order)throws FogProjectException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO order SET order_length = ?, order_width = ?, order_roof = ?, order_angel = ?, order_shed = ?, order_shedwidth = ?, order_length = ?, fk_user_id = ?";
+            String SQL = "INSERT INTO `order` SET order_length = ?, order_width = ?, order_roof = ?, order_angel = ?, order_shed = ?, order_shedwidth = ?, order_shedlength = ?, fk_user_id = ?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setDouble(1, order.getLenght());
             ps.setDouble(2, order.getWidth());
@@ -80,7 +80,7 @@ public class OrderMapper {
             ps.setBoolean(5, order.getShed());
             ps.setDouble(6, order.getShedWidth());
             ps.setDouble(7, order.getShedLength());
-            ps.setInt(8, 1/*user id*/);
+            ps.setInt(8, order.getUser().getId());
             ps.executeUpdate();
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new FogProjectException( ex.getMessage() );

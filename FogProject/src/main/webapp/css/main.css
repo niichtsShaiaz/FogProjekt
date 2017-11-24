@@ -6,8 +6,21 @@
     height: 100%; }
     * body #wrapper h1 {
       text-align: center; }
+    * body #wrapper .pCenterAlign {
+      text-align: center;
+      display: block;
+      margin-bottom: 0; }
+    * body #wrapper .pBold {
+      font-weight: bold; }
     * body #wrapper form {
-      margin: 020px auto;
-      width: 500px; }
+      margin: 20px auto;
+      width: 800px; }
+      * body #wrapper form input[type="checkbox"] {
+        width: 13px; }
+      * body #wrapper form select, * body #wrapper form input {
+        width: 100%;
+        padding: .375rem .75rem;
+        border: 1px solid #ced4da;
+        border-radius: .25rem; }
 
 /*# sourceMappingURL=main.css.map */

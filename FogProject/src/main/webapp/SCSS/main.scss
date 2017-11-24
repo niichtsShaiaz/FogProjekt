@@ -8,9 +8,27 @@
 			h1{
 				text-align: center;			
 			}
+			.pCenterAlign
+			{
+				text-align: center;		
+				display:block;
+				margin-bottom: 0;		
+			}
+			.pBold{
+				font-weight: bold;
+			}
 			form{
-				margin: 020px auto;
-				width: 500px;
+				margin: 20px auto;
+				width: 800px;
+				input[type="checkbox"]{
+					width: 13px;
+				}
+				select, input{
+					width: 100%;
+					padding: .375rem .75rem;
+					border: 1px solid #ced4da;
+					border-radius: .25rem;
+				}
 			}
 		}
 	}
