@@ -6,6 +6,7 @@
 package PresentationLayer;
 
 import FunctionLayer.FogProjectException;
+import FunctionLayer.User;
 import FunctionLayer.UserFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,8 @@ public class LoginCommand extends Command{
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException {
-        if(UserFacade.Login((String)request.getAttribute("email"), (String)request.getAttribute("Password")) != null)
+        User user = UserFacade.Login((String)request.getAttribute("email"), (String)request.getAttribute("password"));
+        if(user != null)
             return "Form";
         else
             return "Login";

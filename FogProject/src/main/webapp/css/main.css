@@ -7,6 +7,7 @@
     * body #wrapper h1 {
       text-align: center; }
     * body #wrapper form {
-      margin-top: 20px; }
+      margin: 020px auto;
+      width: 500px; }
 
 /*# sourceMappingURL=main.css.map */

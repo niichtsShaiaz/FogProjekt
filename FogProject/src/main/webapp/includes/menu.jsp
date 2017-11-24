@@ -1,7 +1,7 @@
 <nav>
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
-			<a class="nav-link active" href="Form.jsp">Lav en carport med dine egne maal</a>
+			<a class="nav-link" href="Form.jsp">Lav en carport med dine egne maal</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="Registration.jsp">registrering</a>
