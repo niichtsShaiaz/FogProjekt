@@ -20,10 +20,10 @@ public class LoginCommand extends Command{
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException {
         User user = UserFacade.Login((String)request.getAttribute("email"), (String)request.getAttribute("password"));
-        if(user != null)
-            return "Form";
-        else
+        if(user == null)
             return "Login";
+        else
+            return "Form";
     }
     
 }
