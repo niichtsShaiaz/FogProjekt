@@ -6,6 +6,8 @@
 package PresentationLayer;
 
 import FunctionLayer.FogProjectException;
+import FunctionLayer.User;
+import FunctionLayer.UserFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +19,11 @@ public class LoginCommand extends Command{
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        User user = UserFacade.Login((String)request.getAttribute("email"), (String)request.getAttribute("password"));
+        if(user != null)
+            return "Form";
+        else
+            return "Login";
     }
     
 }
