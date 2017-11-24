@@ -22,4 +22,10 @@ public class UserFacade {
         return UserMapper.login(email, password);
     }
     
+    public static void main(String[] args) throws FogProjectException
+    {
+        User user = Login("e.z.l@live.com", "1234");
+        System.out.println(user.toString());
+    }
+    
 }
