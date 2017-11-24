@@ -24,11 +24,9 @@ public class LoginCommand extends Command{
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         User user = UserFacade.Login(email, password);
+        System.out.println("12312313141413--    "+ user.toString());
         session.setAttribute("User", user);
-        if(user == null)
-            return "Login";
-        else
-            return "Form";
+        return "Form";
     }
     
 }

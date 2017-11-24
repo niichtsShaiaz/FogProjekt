@@ -23,6 +23,11 @@ abstract class Command {
         commands.put("Carport", new CreateOrderCommand());
         commands.put("AllOrders", new AllOrdersCommand());
     }
+    
+    public static int getSize()
+    {
+        return commands.size();
+    }
 
     static Command from( HttpServletRequest request ) {
         String commandName = request.getParameter( "command" );

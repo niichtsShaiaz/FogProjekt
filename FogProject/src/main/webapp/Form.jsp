@@ -50,7 +50,7 @@
 
         <div class="form-group">
             <label>Tag med hældning?</label>
-            <input type="checkbox" name="roof" class="form-control">
+            <input type="checkbox" name="roof" class="form-control" value="1">
         </div>
     
         <div class="form-group">

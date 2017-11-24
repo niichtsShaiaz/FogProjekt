@@ -13,9 +13,8 @@ import java.util.List;
  * @author Shxnna
  */
 public class OrderFacade {
-    public static void createOrder(double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength) throws FogProjectException
+    public static void createOrder(double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, User user) throws FogProjectException
     {
-        User user = new User(2, "e.z.l@live.com", "Elias", "Laghouila", "53800871", "Trepkasgade 17");//skal slettes når login og session virker
         Order order = new Order(0, width, lenght, roof, angel, shed, shedWidth, shedLength, user);
         OrderMapper.CreateOrder(order);
         

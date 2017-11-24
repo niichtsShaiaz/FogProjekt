@@ -27,6 +27,7 @@ public class FrontController extends HttpServlet {
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         try {
+            System.out.println("-------------- " + request.getParameter("roof"));
             Command action = Command.from( request );
             String view = action.execute( request, response );
             request.getRequestDispatcher(view + ".jsp" ).forward( request, response );
