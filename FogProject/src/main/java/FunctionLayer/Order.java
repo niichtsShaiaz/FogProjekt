@@ -17,18 +17,18 @@ public class Order
     private BillOfMaterial billOfMaterial;
     private User user;
     private double width;
-    private double lenght;
+    private double length;
     private boolean roof;
     private double angel;
     private boolean shed;
     private double shedWidth;
     private double shedLength;
 
-    public Order(int id, double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, User user)
+    public Order(int id, double width, double length, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, User user)
     {
         this.id = id;
         this.width = width;
-        this.lenght = lenght;
+        this.length = length;
         this.roof = roof;
         this.angel = angel;
         this.shed = shed;
@@ -73,14 +73,14 @@ public class Order
         this.width = width;
     }
 
-    public double getLenght()
+    public double getLength()
     {
-        return lenght;
+        return length;
     }
 
-    public void setLenght(double lenght)
+    public void setLenght(double length)
     {
-        this.lenght = lenght;
+        this.length = length;
     }
 
     public boolean getRoof()

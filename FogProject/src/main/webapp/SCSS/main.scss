@@ -30,6 +30,18 @@
 					border-radius: .25rem;
 				}
 			}
+			.order
+			{
+				margin: 0 auto;
+				margin-bottom: 20px;
+				border: 1px solid #000;
+				width: 99%;
+				table{
+					margin: 20px auto;
+					width: 1000px;
+					display: none;
+				}
+			}
 		}
 	}
 }

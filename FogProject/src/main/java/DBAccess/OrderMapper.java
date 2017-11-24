@@ -73,7 +73,7 @@ public class OrderMapper {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `order` SET order_length = ?, order_width = ?, order_roof = ?, order_angel = ?, order_shed = ?, order_shedwidth = ?, order_shedlength = ?, fk_user_id = ?";
             PreparedStatement ps = con.prepareStatement( SQL );
-            ps.setDouble(1, order.getLenght());
+            ps.setDouble(1, order.getLength());
             ps.setDouble(2, order.getWidth());
             ps.setBoolean(3, order.getRoof());
             ps.setDouble(4, order.getAngel());

@@ -22,5 +22,14 @@
         padding: .375rem .75rem;
         border: 1px solid #ced4da;
         border-radius: .25rem; }
+    * body #wrapper .order {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      border: 1px solid #000;
+      width: 99%; }
+      * body #wrapper .order table {
+        margin: 20px auto;
+        width: 1000px;
+        display: none; }
 
 /*# sourceMappingURL=main.css.map */

@@ -4,6 +4,9 @@
 			<a class="nav-link" href="Form.jsp">Lav en carport med dine egne maal</a>
 		</li>
 		<li class="nav-item">
+			<a class="nav-link" href="FrontController?command=AllOrders">Alle ordrer</a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link" href="Registration.jsp">registrering</a>
 		</li>
 		<li class="nav-item">
