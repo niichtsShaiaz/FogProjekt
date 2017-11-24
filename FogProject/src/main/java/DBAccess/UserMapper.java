@@ -50,8 +50,7 @@ public class UserMapper {
                 User user = new User( id, email, firstName, lastName, telephone, address );
                 return user;
             } else {
-                return null;
-                //throw new FogProjectException( "Could not validate user" );
+                throw new FogProjectException( "Could not validate user" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new FogProjectException(ex.getMessage());

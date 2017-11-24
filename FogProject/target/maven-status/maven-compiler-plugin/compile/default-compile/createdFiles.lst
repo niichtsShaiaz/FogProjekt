@@ -1,3 +1,9 @@
+PresentationLayer\CreateOrderCommand.class
 PresentationLayer\UnknownCommand.class
+DBAccess\OrderMapper.class
+PresentationLayer\BillOfMaterialCommand.class
+PresentationLayer\AllOrdersCommand.class
+FunctionLayer\OrderFacade.class
 DBAccess\Connector.class
+FunctionLayer\Order.class
 PresentationLayer\Command.class

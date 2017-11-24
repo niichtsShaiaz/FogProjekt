@@ -34,8 +34,11 @@ public class Order
         this.shed = shed;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
+        this.user = user;
         
         //create bill of material here
+        this.billOfMaterial = new BillOfMaterial();
+        billOfMaterial.createBillOfMaterial(width, length, length, roof, shed, shedLength);
     }
 
     public int getId()
@@ -131,6 +134,12 @@ public class Order
     public void setShedLength(double shedLength)
     {
         this.shedLength = shedLength;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Order{" + "id=" + id + ", billOfMaterial=" + billOfMaterial + ", user=" + user + ", width=" + width + ", length=" + length + ", roof=" + roof + ", angel=" + angel + ", shed=" + shed + ", shedWidth=" + shedWidth + ", shedLength=" + shedLength + '}';
     }
     
     

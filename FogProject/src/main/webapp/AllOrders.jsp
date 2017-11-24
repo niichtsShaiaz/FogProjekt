@@ -16,7 +16,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/main.js" type="text/javascript"></script>
+        
     </head>
     <body>
         <div id="wrapper">
@@ -37,13 +37,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%for(int i2 = 0; i < ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().size(); i2++){%>
+                            <%for(int i2 = 0; i2 < ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().size(); i2++){%>
                             <tr>
-                                <th><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i).getWidth()%>x<%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i).getLength()%>cm. <%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i).getType()%></th>
-                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i).getHight()%></td>
-                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i).getQty()%></td>
+                                <th><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getWidth()%>x<%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getLength()%>cm. <%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getType()%></th>
+                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getHight()%></td>
+                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getQty()%></td>
                                 <td>Stk</td>
-                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i).getMaterial()%></td>
+                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getMaterial()%></td>
                             </tr>
                             <%}%>
                         </tbody>

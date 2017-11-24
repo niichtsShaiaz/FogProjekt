@@ -41,6 +41,15 @@ public class OrderMapper {
             ResultSet rs = stm.executeQuery(sql);
             while(rs.next())
             {
+                User user = 
+                        new User(
+                                rs.getInt("id"), 
+                                rs.getString("email"), 
+                                rs.getString("firstname"), 
+                                rs.getString("lastname"), 
+                                rs.getString("telephone"), 
+                                rs.getString("address")
+                            );
                 orders.add(
                         new Order(
                                 rs.getInt("order_id"),
@@ -49,14 +58,7 @@ public class OrderMapper {
                                 rs.getBoolean("order_roof"), rs.getDouble("order_angel"), 
                                 rs.getBoolean("order_shed"), rs.getDouble("order_shedwidth"), 
                                 rs.getDouble("order_shedlength"), 
-                                new User(
-                                        rs.getInt("user.id"), 
-                                        rs.getString("user.email"), 
-                                        rs.getString("user.firstname"), 
-                                        rs.getString("user.lastname"), 
-                                        rs.getString("user.telephone"), 
-                                        rs.getString("user.address")
-                                )
+                                user
                             )
                         );
             }

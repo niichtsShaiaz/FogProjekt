@@ -28,7 +28,7 @@ public class OrderFacade {
     
     public static void main(String[] args) throws FogProjectException
     {
-        createOrder(300, 300, false, 0, false, 0, 0);
+        //createOrder(300, 300, true, 45, false, 0, 0);
         List<Order> orders = getAllOrders();
         for(int i = 0; i < orders.size(); i++)
             System.out.println("Order: " + orders.get(i).toString());
