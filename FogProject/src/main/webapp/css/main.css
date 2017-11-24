@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0; }
+  * body #wrapper {
+    width: 100%;
+    height: 100%; }
+    * body #wrapper h1 {
+      text-align: center; }
+    * body #wrapper .pCenterAlign {
+      text-align: center;
+      display: block;
+      margin-bottom: 0; }
+    * body #wrapper .pBold {
+      font-weight: bold; }
+    * body #wrapper form {
+      margin: 20px auto;
+      width: 800px; }
+      * body #wrapper form input[type="checkbox"] {
+        width: 13px; }
+      * body #wrapper form select, * body #wrapper form input {
+        width: 100%;
+        padding: .375rem .75rem;
+        border: 1px solid #ced4da;
+        border-radius: .25rem; }
+    * body #wrapper .order {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      border: 1px solid #000;
+      width: 99%; }
+      * body #wrapper .order table {
+        margin: 20px auto;
+        width: 1000px; }
+
+/*# sourceMappingURL=main.css.map */
