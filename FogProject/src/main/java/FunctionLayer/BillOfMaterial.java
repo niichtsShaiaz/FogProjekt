@@ -17,8 +17,8 @@ public class BillOfMaterial {
     
     public void createBillOfMaterial(double width, double height, double length, boolean roof, boolean shed, double shedLength)
     {
-        pools(height, length);
-        beams(width, height, length);
+        materialList.add(pools(height, length));
+        materialList.add(beams(width, height, length));
         if(roof){
             int angle = 20;
             materialList.add(roofSpær(width, length, angle));
@@ -29,18 +29,18 @@ public class BillOfMaterial {
         if(shed){}
     }
     
-    private void pools(double height, double length)
+    private Material pools(double height, double length)
     {
         int i = 4;
         i += (length - 80 - 30) / 275;
-        materialList.add(new Material("trykimp.	Stolpe", "Stolper nedgraves 90 cm. i jord", 0.97, height + 90, 0.97, i, 50));
+        return new Material("trykimp. Stolpe", "Stolper nedgraves 90 cm. i jord", 0.97, height + 90, 0.97, i, 50);
         
     }
     
     //remme
-    private void beams(double width, double height, double length)
+    private Material beams(double width, double height, double length)
     {
-        materialList.add(new Material("?", "?", 0, 0, length + 80 + 30, 2, 50));
+        return new Material("spærtræ ubh.", "Remme i sider, sadles ned i stolper", 0.45, length, 1.95 + 80 + 30, 2, 50);
     }
     
     public List<Material> getBillOfMaterialList()
