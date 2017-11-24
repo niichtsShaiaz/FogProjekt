@@ -1,0 +1,47 @@
+*{
+	padding: 0;
+	margin: 0;
+	body{
+		#wrapper{
+			width: 100%;
+			height: 100%;
+			h1{
+				text-align: center;			
+			}
+			.pCenterAlign
+			{
+				text-align: center;		
+				display:block;
+				margin-bottom: 0;		
+			}
+			.pBold{
+				font-weight: bold;
+			}
+			form{
+				margin: 20px auto;
+				width: 800px;
+				input[type="checkbox"]{
+					width: 13px;
+				}
+				select, input{
+					width: 100%;
+					padding: .375rem .75rem;
+					border: 1px solid #ced4da;
+					border-radius: .25rem;
+				}
+			}
+			.order
+			{
+				margin: 0 auto;
+				margin-bottom: 20px;
+				border: 1px solid #000;
+				width: 99%;
+				table{
+					margin: 20px auto;
+					width: 1000px;
+					display: none;
+				}
+			}
+		}
+	}
+}
