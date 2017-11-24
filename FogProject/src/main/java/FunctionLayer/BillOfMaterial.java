@@ -33,14 +33,14 @@ public class BillOfMaterial {
     {
         int i = 4;
         i += (length - 80 - 30) / 275;
-        return new Material("trykimp.	Stolpe", "Stolper nedgraves 90 cm. i jord", 0.97, height + 90, 0.97, i, 50);
+        return new Material("trykimp. Stolpe", "Stolper nedgraves 90 cm. i jord", 0.97, height + 90, 0.97, i, 50);
         
     }
     
     //remme
     private Material beams(double width, double height, double length)
     {
-        return new Material("?", "?", 0, 0, length + 80 + 30, 2, 50);
+        return new Material("spærtræ ubh.", "Remme i sider, sadles ned i stolper", 0.45, length, 1.95 + 80 + 30, 2, 50);
     }
     
     public List<Material> getBillOfMaterialList()
