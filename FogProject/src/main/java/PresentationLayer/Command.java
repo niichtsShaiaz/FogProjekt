@@ -19,11 +19,18 @@ abstract class Command {
 
     private static void initCommands() {
         commands = new HashMap<>();
+        commands.put("Login", new LoginCommand());
+        commands.put("Carport", new CreateOrderCommand());
+        commands.put("AllOrders", new AllOrdersCommand());
+    }
+    
+    public static int getSize()
+    {
+        return commands.size();
     }
 
     static Command from( HttpServletRequest request ) {
         String commandName = request.getParameter( "command" );
-        
         System.out.println(commandName);
         if ( commands == null ) {
             initCommands();
