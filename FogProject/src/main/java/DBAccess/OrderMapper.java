@@ -82,7 +82,7 @@ public class OrderMapper {
             ps.setBoolean(5, order.getShed());
             ps.setDouble(6, order.getShedWidth());
             ps.setDouble(7, order.getShedLength());
-            ps.setInt(8, 2);
+            ps.setInt(8, order.getUser().getId());
             ps.executeUpdate();
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new FogProjectException( ex.getMessage() );

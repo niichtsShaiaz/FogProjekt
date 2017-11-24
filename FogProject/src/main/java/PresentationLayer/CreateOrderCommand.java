@@ -7,8 +7,10 @@ package PresentationLayer;
 
 import FunctionLayer.FogProjectException;
 import FunctionLayer.OrderFacade;
+import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,9 +21,16 @@ public class CreateOrderCommand extends Command
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException
-    {
-        OrderFacade.createOrder((double)request.getAttribute("width"), (double)request.getAttribute("length"), (boolean)request.getAttribute("roof"), (double)request.getAttribute("angel"), (boolean)request.getAttribute("shed"), (double)request.getAttribute("shedWidth"), (double)request.getAttribute("shedLength"));
-        return "index";
+    {   
+        boolean roof = false;
+        boolean shed = false;
+        if(request.getParameter("roof") != null)
+            roof = true;
+        if(request.getParameter("shed") != null)
+            shed = true;
+        HttpSession session = request.getSession();
+        OrderFacade.createOrder(Double.parseDouble(request.getParameter("width")), Double.parseDouble(request.getParameter("length")), roof, Double.parseDouble(request.getParameter("angel")), shed, Double.parseDouble(request.getParameter("shedWidth")), Double.parseDouble(request.getParameter("shedLength")), (User)session.getAttribute("User"));
+        return "ConfirmationPage";
     }
     
 }
