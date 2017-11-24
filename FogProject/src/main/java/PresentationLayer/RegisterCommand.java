@@ -14,26 +14,19 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Jbakke
+ * @author jmb
  */
-public class LoginCommand extends Command{
+public class RegisterCommand extends Command{
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException {
-<<<<<<< HEAD
-        User user = UserFacade.Login((String)request.getAttribute("email"), (String)request.getAttribute("password"));
-        if(user == null)
-            return "Login";
-        else
-            return "Form";
-=======
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        UserFacade.Register(email, password);
         User user = UserFacade.Login(email, password);
         session.setAttribute("User", user);
         return "";
->>>>>>> Jbakke
     }
     
 }
