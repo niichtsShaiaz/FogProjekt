@@ -25,6 +25,10 @@ public class OrderFacade {
         return OrderMapper.getAllOrders();
     }
     
+    public static List<Order> getUserOrders(User user)throws FogProjectException{
+        return OrderMapper.getUserOrders(user);
+    }
+    
     public static void main(String[] args) throws FogProjectException
     {
         //createOrder(300, 300, true, 45, false, 0, 0);

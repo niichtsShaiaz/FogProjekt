@@ -23,8 +23,7 @@ public class LoginCommand extends Command{
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        User user = UserFacade.Login(email, password);
-        System.out.println("12312313141413--    "+ user.toString());
+        User user = UserFacade.login(email, password);
         session.setAttribute("User", user);
         return "Form";
     }

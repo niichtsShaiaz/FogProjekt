@@ -68,7 +68,7 @@
 
         <div class="form-group">
             <label>Redskabsrum?</label>
-            <input type="checkbox" name="shed" class="form-control">
+            <input type="checkbox" name="shed" class="form-control" value="1">
         </div>
 
         <div class="form-group">

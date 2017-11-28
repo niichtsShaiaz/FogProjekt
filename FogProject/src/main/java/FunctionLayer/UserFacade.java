@@ -13,19 +13,15 @@ import DBAccess.UserMapper;
  */
 public class UserFacade {
     
-    public static User Login(String email, String password)throws FogProjectException{
+    public static User login(String email, String password)throws FogProjectException{
         return UserMapper.login(email, password);
     }
     
-    public static User Register(String email, String password)throws FogProjectException{
-        UserMapper.Register(email, password);
+    public static User register(String email, String password, String firstName, String lastName, String telephone, String address)throws FogProjectException{
+        UserMapper.register(email, password, firstName, lastName, telephone, address);
         return UserMapper.login(email, password);
     }
     
-    public static void main(String[] args) throws FogProjectException
-    {
-        User user = Login("e.z.l@live.com", "1234");
-        System.out.println(user.toString());
-    }
+    
     
 }

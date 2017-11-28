@@ -37,7 +37,7 @@ public class OrderMapper {
             List<Order> orders = new ArrayList<>();
             Connection con = Connector.connection();
             Statement stm = con.createStatement();
-            String sql = "SELECT order_id, order_length, order_width, order_roof, order_angel, order_shed, order_shedwidth, order_shedlength, fk_user_id, user.id, user.email, user.firstname, user.lastname, user.telephone, user.address FROM `order` INNER JOIN user on fk_user_id = user.id ORDER BY order_id DESC";
+            String sql = "SELECT order_id, order_length, order_width, order_roof, order_angel, order_shed, order_shedwidth, order_shedlength, fk_user_id, user.id, user.email, user.firstname, user.lastname, user.telephone, user.address, user.role FROM `order` INNER JOIN user on fk_user_id = user.id ORDER BY order_id DESC";
             ResultSet rs = stm.executeQuery(sql);
             while(rs.next())
             {
@@ -48,7 +48,8 @@ public class OrderMapper {
                                 rs.getString("firstname"), 
                                 rs.getString("lastname"), 
                                 rs.getString("telephone"), 
-                                rs.getString("address")
+                                rs.getString("address"),
+                                rs.getString("role")
                             );
                 orders.add(
                         new Order(
@@ -88,5 +89,29 @@ public class OrderMapper {
             throw new FogProjectException( ex.getMessage() );
         }
         
+    }
+    
+    public static List<Order> getUserOrders(User user)throws FogProjectException{
+        List<Order> orderList = new ArrayList();
+        Statement stm;
+        try {
+            stm = Connector.connection().createStatement();
+            String sql = "SELECT * FROM order WHERE fk_user_id = " + user.getId() + "";
+            ResultSet rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                orderList.add(new Order(
+                                rs.getInt("order_id"),
+                                rs.getDouble("order_width"), 
+                                rs.getDouble("order_length"), 
+                                rs.getBoolean("order_roof"), rs.getDouble("order_angel"), 
+                                rs.getBoolean("order_shed"), rs.getDouble("order_shedwidth"), 
+                                rs.getDouble("order_shedlength"), 
+                                user
+                            ));
+            }
+            return orderList;
+        } catch ( ClassNotFoundException | SQLException ex ) {
+            throw new FogProjectException(ex.getMessage());
+        }
     }
 }

@@ -23,10 +23,14 @@ public class RegisterCommand extends Command{
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        UserFacade.Register(email, password);
-        User user = UserFacade.Login(email, password);
+        String firstName = request.getParameter("fornavn");
+        String lastName = request.getParameter("efternavn");
+        String telephone = request.getParameter("tlf");
+        String address = request.getParameter("adresse");
+        UserFacade.register(email, password, firstName, lastName, telephone, address);
+        User user = UserFacade.login(email, password);
         session.setAttribute("User", user);
-        return "";
+        return "Form";
     }
     
 }
