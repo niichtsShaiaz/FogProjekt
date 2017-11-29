@@ -28,7 +28,7 @@ public class MaterialMapper
         
         Connection con = Connector.connection();
         Statement stm = con.createStatement();
-        String sql = "SELECT material_id, material_name, material_comment, material_sideA, material_sideB FROM material;";
+        String sql = "SELECT material_id, material_name, material_comment, material_sideA, material_sideB, material_enhed FROM material;";
         ResultSet rs = stm.executeQuery(sql);
         while(rs.next())
         {

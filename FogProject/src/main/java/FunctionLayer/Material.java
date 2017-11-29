@@ -29,6 +29,7 @@ public class Material implements MaterialInterface{
         this.length = length;
         this.qty = qty;
         this.price = price;
+        this.enhed = enhed;
     }
     
     @Override
@@ -95,12 +96,10 @@ public class Material implements MaterialInterface{
     {
         this.comment = comment;
     }
-    
+
     @Override
     public String toString()
     {
-        return "Material{" + "name=" + name + ", comment=" + comment + ", sideA=" + sideA + ", sideB=" + sideB + ", length=" + length + ", qty=" + qty + ", price=" + price + '}';
+        return "Material{" + "name=" + name + ", comment=" + comment + ", sideA=" + sideA + ", sideB=" + sideB + ", length=" + length + ", qty=" + qty + ", price=" + price + ", enhed=" + enhed + '}';
     }
-    
-    
 }
