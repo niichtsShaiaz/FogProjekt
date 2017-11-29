@@ -11,43 +11,44 @@ package FunctionLayer;
  */
 public class Material implements MaterialInterface{
 
-    String type = "";
-    String material = "";
-    double width = 0;
-    double hight = 0;
+    String name = "";
+    String comment = "";
+    double sideA = 0;
+    double sideB = 0;
     double length = 0;
     int qty = 0;
     double price = 0;
+    String enhed = "";
 
-    public Material(String type, String material, double width, double hight, double length, int qty, double price) 
+    public Material(String name, String comment, double sideA, double sideB, double length, int qty, double price, String enhed) 
     {
-        this.type = type;
-        this.material = material;
-        this.width = width;
-        this.hight = hight;
+        this.name = name;
+        this.comment = comment;
+        this.sideA = sideA;
+        this.sideB = sideB;
         this.length = length;
         this.qty = qty;
         this.price = price;
     }
     
     @Override
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
     @Override
-    public String getMaterial() {
-        return material;
+    public String getComment() {
+        return comment;
     }
 
     @Override
-    public double getWidth() {
-        return width;
+    public double getSideA() {
+        return sideA;
     }
 
     @Override
-    public double getHight() {
-        return hight;
+    public double getSideB() {
+        return sideB;
     }
 
     @Override
@@ -65,9 +66,41 @@ public class Material implements MaterialInterface{
         return price;
     }
     
+    public String getEnhed()
+    {
+        return enhed;
+    }
+    
     public double getFullPrice()
     {
         return price * (length/30) * qty;
     }
+
+    public void setLength(double length)
+    {
+        this.length = length;
+    }
+
+    public void setQty(int qty)
+    {
+        this.qty = qty;
+    }
+
+    public void setPrice(double price)
+    {
+        this.price = price;
+    }
+    
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Material{" + "name=" + name + ", comment=" + comment + ", sideA=" + sideA + ", sideB=" + sideB + ", length=" + length + ", qty=" + qty + ", price=" + price + '}';
+    }
+    
     
 }
