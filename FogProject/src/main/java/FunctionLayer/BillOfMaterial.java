@@ -89,10 +89,51 @@ public class BillOfMaterial {
         return material;
     }
     
-    public Material Sternbraedder(double length)
+    public Material sternBraedder(double length)
     {
-        return null;
+        Material material = materialHMap.getHmap("bræt");
+        material.setLength(length);
+        material.setComment("Sternbrædder til siderne Carport del");
+        material.setQty(1);
+        material.setPrice(0);
+        return material;
     }
+    
+    //skur
+    public Material sternBraedderSkur(double shedLength)
+    {
+        Material material = materialHMap.getHmap("bræt");
+        material.setLength(shedLength);
+        material.setComment("Sternbrædder til siderne Skur del (deles)");
+        material.setQty(1);
+        material.setPrice(0);
+        return material;
+    }
+    
+    public Material bygSelvSpaer()
+    {
+        Material material = materialHMap.getHmap("byg_selv spær");
+        material.setLength(0);
+        material.setComment("byg-selv spær (skal samles) 8 stk.");
+        material.setQty(1);
+        material.setPrice(0);
+        return material;
+    }
+    
+    public Material stolper(double length)
+    {
+        int i = 4;
+        i += (length - 80 - 30) / 275;
+        
+        Material material = materialHMap.getHmap("stolpe");
+        material.setLength(300 + 90);
+        material.setComment("Stolper nedgraves 90 cm. i jord + skråstiver");
+        material.setQty(i);
+        material.setPrice(0);
+        return material;
+    }
+    
+    
     
     
     
