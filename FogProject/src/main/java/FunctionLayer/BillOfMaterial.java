@@ -26,20 +26,6 @@ public class BillOfMaterial {
         materialHMap = new MaterialHashMap();
     }
     
-    public void createBillOfMaterial(double width, double height, double length, boolean roof, boolean shed, double shedLength)
-    {
-        //materialList.add(pools(height, length));
-        materialList.add(beams(width, height, length));
-        if(roof){
-            int angle = 20;
-            materialList.add(roofSpær(width, length, angle));
-            materialList.add(roofLægter(width, length));
-            materialList.add(roofSten(width, length, angle));
-            materialList.add(roofRygSten(length));
-        }
-        if(shed){}
-    }
-    
     public void createBillOfMaterialv2(double width, double height, double length, boolean roof, boolean shed, double shedLength)
     {
         
@@ -89,51 +75,82 @@ public class BillOfMaterial {
         return material;
     }
     
+    public Material sternBraedder(double length)
+    {
+        Material material = materialHMap.getHmap("bræt");
+        material.setLength(length);
+        material.setComment("Sternbrædder til siderne Carport del");
+        material.setQty(1);
+        material.setPrice(0);
+        return material;
+    }
     
+    //skur
+    public Material sternBraedderSkur(double shedLength)
+    {
+        Material material = materialHMap.getHmap("bræt");
+        material.setLength(shedLength);
+        material.setComment("Sternbrædder til siderne Skur del (deles)");
+        material.setQty(1);
+        material.setPrice(0);
+        return material;
+    }
     
+    public Material bygSelvSpaer()
+    {
+        Material material = materialHMap.getHmap("byg_selv spær");
+        material.setLength(0);
+        material.setComment("byg-selv spær (skal samles) 8 stk.");
+        material.setQty(1);
+        material.setPrice(0);
+        return material;
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*private Material pools(double height, double length)
+    public Material stolper(double length)
     {
         int i = 4;
         i += (length - 80 - 30) / 275;
-        materialHmapDB.get("stolpe").setLength(height + 90);
-        materialHmapDB.get("stolpe").setQty(i);
-        return materialHmapDB.get("stolpe");
         
-    }*/
-    
-    //remme
-    private Material beams(double width, double height, double length)
-    {
-        return new Material("spærtræ ubh.", "Remme i sider, sadles ned i stolper", 04.5, 1.95, length + 80 + 30, 2, 50, "Stk");
+        Material material = materialHMap.getHmap("stolpe");
+        material.setLength(300 + 90);
+        material.setComment("Stolper nedgraves 90 cm. i jord + skråstiver");
+        material.setQty(i);
+        material.setPrice(0);
+        return material;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public List<Material> getBillOfMaterialList()
     {
@@ -174,7 +191,9 @@ public class BillOfMaterial {
     
     public static void main(String[] args) throws FogProjectException
     {
-        
+        BillOfMaterial bom = new BillOfMaterial();
+        //System.out.println(bom.carportRemme(500));
+        //System.out.println(bom.carportRemme(200));
     }
 }
 
