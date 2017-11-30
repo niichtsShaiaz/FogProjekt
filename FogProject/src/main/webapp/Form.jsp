@@ -12,7 +12,7 @@
         <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="wrapper">
+        <div id="wrapper"> 
     <jsp:include page="includes/menu.jsp" />
     <h1> Velkommen! Indtast dine mål</h1>
     <p class="pCenterAlign">Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.</p>
