@@ -19,16 +19,28 @@ public class User {
     private String lastName;
     private String telephone;
     private String address;
+    private String role;
     private List<Order> orderList = new ArrayList<>();
-    
-    public User(int id, String email, String firstName, String lastName, String telephone, String address) {
+
+    public User(int id, String email, String firstName, String lastName, String telephone, String address, String role) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
         this.address = address;
+        this.role = role;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+    
+    
 
     public int getId() {
         return id;
