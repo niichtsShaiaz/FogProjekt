@@ -28,10 +28,12 @@ public class BillOfMaterialCommand extends Command{
        int length = Integer.parseInt(request.getParameter("Length"));
        int heigth = Integer.parseInt(request.getParameter("Height"));
        boolean roof = Boolean.parseBoolean(request.getParameter("roof"));
+       int angel = Integer.parseInt(request.getParameter("angel"));
        boolean shed = Boolean.parseBoolean(request.getParameter("shed"));
+       int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
        
        BillOfMaterial bom = new BillOfMaterial();
-       bom.createBillOfMaterialv2(width, heigth, length, roof, shed, 0);
+       bom.createBillOfMaterialv2(width, heigth, length, roof, angel, shed, shedWidth);
            
         return "";
     }

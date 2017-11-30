@@ -25,91 +25,79 @@ public class BillOfMaterial {
     {
         materialHMap = new MaterialHashMap();
     }
-    
-    public void createBillOfMaterialv2(double width, double height, double length, boolean roof, boolean shed, double shedLength)
+
+    public List<Material> getBillOfMaterialList()
     {
-        
+        return materialList;
     }
     
-    
-    public Material stolper(double height, double length, boolean shed)
+    public void createBillOfMaterialv2(double width, double height, double length, boolean roof, double angel, boolean shed, double shedLength)
     {
-        int i = 4;
-        i += (length - 80 - 30) / 275;        
-        Material material = materialHMap.getHmap("stolpe");
-        material.setLength(height + 90);
-        material.setComment("Stolper nedgraves 90 cm. i jord + skråstiver");
-        material.setQty(i);
-        material.setPrice(0);
-        return material;
+        materialList.add(stolper(length, shed, shedLength));
+        if(roof)
+        {
+            materialList.add(roofSpær(width, length, angel));
+            materialList.add(roofLægter(width, length));
+            materialList.add(roofSten(width, length, angel));
+            materialList.add(roofRygSten(length));
+        }
+        if(shed)
+        {
+            
+        }
     }
     
-    public Material carportRemme(double length)
-    {
-        Material material = materialHMap.getHmap("spærtræ");
-        material.setLength(length + 80);
-        material.setComment("Remme i sider, sadles ned i stolper Carport del");
-        material.setQty(2);
-        material.setPrice(0);
-        return material;
-    }
-    
-    //skur
-    public Material skurRemme(double shedLength)
-    {
-        Material material = materialHMap.getHmap("spærtræ");
-        material.setLength(shedLength + 80);
-        material.setComment("Remme i sider, sadles ned i stolper Skur del");
-        material.setQty(2);
-        material.setPrice(0);
-        return material;
-    }
-    
-    public Material vindskeder(double shedLength)
+    //-+-+
+    public Material vindskeder(double length)
     {
         Material material = materialHMap.getHmap("bræt");
-        material.setLength(shedLength);
+        material.setLength(length);
         material.setComment("Vindskeder på rejsning");
         material.setQty(1);
         material.setPrice(0);
         return material;
     }
     
+    //-+-+
     public Material sternBraedder(double length)
     {
         Material material = materialHMap.getHmap("bræt");
         material.setLength(length);
         material.setComment("Sternbrædder til siderne Carport del");
-        material.setQty(1);
+        material.setQty(0);
         material.setPrice(0);
         return material;
     }
     
-    //skur
+    //skur -+-+
     public Material sternBraedderSkur(double shedLength)
     {
         Material material = materialHMap.getHmap("bræt");
         material.setLength(shedLength);
-        material.setComment("Sternbrædder til siderne Skur del (deles)");
-        material.setQty(1);
+        material.setComment("Sternbrædder til siderne Skur del ( deles )");
+        material.setQty(0);
         material.setPrice(0);
         return material;
     }
     
+    //-+-+
     public Material bygSelvSpaer()
     {
         Material material = materialHMap.getHmap("byg_selv spær");
         material.setLength(0);
         material.setComment("byg-selv spær (skal samles) 8 stk.");
-        material.setQty(1);
+        material.setQty(0);
         material.setPrice(0);
         return material;
     }
     
-    public Material stolper(double length)
+    public Material stolper(double length, boolean shed, double shedLength)
     {
         int i = 4;
-        i += (length - 80 - 30) / 275;
+        if(shed)
+            i += ((length - shedLength - 275 - 80 - 30) / 275) * 2;
+        else
+            i += 7;
         
         Material material = materialHMap.getHmap("stolpe");
         material.setLength(300 + 90);
@@ -119,44 +107,127 @@ public class BillOfMaterial {
         return material;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public List<Material> getBillOfMaterialList()
+    public Material carportRemme(double length)
     {
-        return materialList;
+        Material material = materialHMap.getHmap("spærtræ");
+        material.setLength(length);
+        material.setComment("Remme i sider, sadles ned i stolper Carport del");
+        material.setQty(2);
+        material.setPrice(0);
+        return material;
     }
     
+    //skur -+-+
+    public Material skurRemme(double shedLength)
+    {
+        Material material = materialHMap.getHmap("spærtræ");
+        material.setLength(shedLength);
+        material.setComment("Remme i sider, sadles ned i stolper Skur del");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    //skur -+-+
+    public Material reglarLøsholteISiderneAfSkuret(double shedLength)
+    {
+        Material material = materialHMap.getHmap("reglar");
+        material.setLength(shedLength + 80);
+        material.setComment("Løsholter i siderne af skur");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    //skur -+-+
+    public Material reglarLøsholteIGavleAfSkuret(double shedLength)
+    {
+        Material material = materialHMap.getHmap("reglar");
+        material.setLength(shedLength);
+        material.setComment("Løsholter i gavle af skur");
+        material.setQty(2);
+        material.setPrice(0);
+        return material;
+    }
+
+    //-+-+
+    public Material vandBrætVindskeder(double length)
+    {
+        Material material = materialHMap.getHmap("brædt19x100");
+        material.setLength(length);
+        material.setComment("Vand bræt på vindskeder");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    //-+-+
+    public Material brætBeklædningAfGavle1Og2(double length)
+    {
+        Material material = materialHMap.getHmap("brædt19x100");
+        material.setLength(length);
+        material.setComment("beklædning af gavle 1 på 2");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    //skur -+-+
+    public Material brætBeklædningAfSkur1Og2(double shedLength)
+    {
+        Material material = materialHMap.getHmap("brædt19x100");
+        material.setLength(shedLength);
+        material.setComment("Beklædning af skur 1 på 2");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    //-+-+
+    public Material brætTilMonteringAfTagfodslægte(double length)
+    {
+        Material material = materialHMap.getHmap("brædt25x50");
+        material.setLength(length);
+        material.setComment("til montering oven på tagfodslægte");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    // -+-+
+    public Material taglægteBagsidenAfDøren()
+    {
+        Material material = materialHMap.getHmap("taglægte");
+        material.setLength(0);
+        material.setComment("til z på bagside af dør");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    // -+-+
+    public Material taglægteMonteringPåSpær()
+    {
+        Material material = materialHMap.getHmap("taglægte");
+        material.setLength(0);
+        material.setComment("til montering på spær, 7 rækker lægter på hver skiftevis 1 hel & 1 halv lægte");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }
+
+    // -+-+
+    public Material topLægteTilMonteringAfRygsten()
+    {
+        Material material = materialHMap.getHmap("taglægte");
+        material.setLength(0);
+        material.setComment("toplægte til montering af rygsten lægges i toplægte holder");
+        material.setQty(0);
+        material.setPrice(0);
+        return material;
+    }    
+    
+    // tag med rejsning -- start --
     private double Sinus(double sideA, double vinkelB)
     {
         double vinkelC = 90;
@@ -170,6 +241,7 @@ public class BillOfMaterial {
         double angleLeft = SinusLength % 89;
         return new Material("Spær", "Wood", 10, SinusLength, 10, spærQty*2, 15, "Stk");
     }
+
     //30.7     89
     private Material roofLægter(double width, double length){
         int lægterQty = (int) (width / 30.7);
@@ -188,12 +260,11 @@ public class BillOfMaterial {
         int rygTagStensQty = (int) (length / rygTagStensLængde);
         return new Material("Rygsten", "Sten", 20, 5, rygTagStensLængde, rygTagStensQty, 15, "Stk");
     }
+    // tag med rejsning -- slut --
     
     public static void main(String[] args) throws FogProjectException
     {
         BillOfMaterial bom = new BillOfMaterial();
-        //System.out.println(bom.carportRemme(500));
-        //System.out.println(bom.carportRemme(200));
     }
 }
 
