@@ -16,21 +16,19 @@ import java.util.List;
  */
 public class BillOfMaterial {
     List<Material> materialList = new ArrayList<Material>();
-    
     List<Material> woodList = new ArrayList<Material>();
     List<Material> roofList = new ArrayList<Material>();
     
-    HashMap<String, Material> materialHmapDB = new HashMap<String, Material>();
-    public HashMap<String, Material> getHmap(){return materialHmapDB;}
+    MaterialHashMap materialHMap = null;
     
-    public BillOfMaterial() throws FogProjectException
+    public BillOfMaterial()throws FogProjectException
     {
-        materialHmapDB = MaterialMapper.getAllMaterials();
+        materialHMap = new MaterialHashMap();
     }
     
     public void createBillOfMaterial(double width, double height, double length, boolean roof, boolean shed, double shedLength)
     {
-        materialList.add(pools(height, length));
+        //materialList.add(pools(height, length));
         materialList.add(beams(width, height, length));
         if(roof){
             int angle = 20;
@@ -48,34 +46,47 @@ public class BillOfMaterial {
     }
     
     
-    public Material stolper(double height, double length)
+    public Material stolper(double height, double length, boolean shed)
     {
         int i = 4;
-        i += (length - 80 - 30) / 275;
-        materialHmapDB.get("stolpe").setLength(height + 90);
-        materialHmapDB.get("stolpe").setComment("Stolper nedgraves 90 cm. i jord + skråstiver");
-        materialHmapDB.get("stolpe").setQty(i);
-        materialHmapDB.get("stolpe").setQty(0);
-        return materialHmapDB.get("stolpe");
+        i += (length - 80 - 30) / 275;        
+        Material material = materialHMap.getHmap("stolpe");
+        material.setLength(height + 90);
+        material.setComment("Stolper nedgraves 90 cm. i jord + skråstiver");
+        material.setQty(i);
+        material.setPrice(0);
+        return material;
     }
     
     public Material carportRemme(double length)
     {
-        materialHmapDB.get("spærtræ").setLength(length + 80);
-        materialHmapDB.get("spærtræ").setComment("Remme i sider, sadles ned i stolper Carport del");
-        materialHmapDB.get("spærtræ").setQty(2);
-        materialHmapDB.get("spærtræ").setPrice(0);
-        return materialHmapDB.get("spærtræ");
+        Material material = materialHMap.getHmap("spærtræ");
+        material.setLength(length + 80);
+        material.setComment("Remme i sider, sadles ned i stolper Carport del");
+        material.setQty(2);
+        material.setPrice(0);
+        return material;
     }
     
     //skur
     public Material skurRemme(double shedLength)
     {
-        materialHmapDB.get("spærtræ").setLength(shedLength + 80);
-        materialHmapDB.get("spærtræ").setComment("Remme i sider, sadles ned i stolper Skur del");
-        materialHmapDB.get("spærtræ").setQty(2);
-        materialHmapDB.get("spærtræ").setPrice(0);
-        return materialHmapDB.get("spærtræ");
+        Material material = materialHMap.getHmap("spærtræ");
+        material.setLength(shedLength + 80);
+        material.setComment("Remme i sider, sadles ned i stolper Skur del");
+        material.setQty(2);
+        material.setPrice(0);
+        return material;
+    }
+    
+    public Material vindskeder(double shedLength)
+    {
+        Material material = materialHMap.getHmap("bræt");
+        material.setLength(shedLength);
+        material.setComment("Vindskeder på rejsning");
+        material.setQty(1);
+        material.setPrice(0);
+        return material;
     }
     
     
@@ -108,7 +119,7 @@ public class BillOfMaterial {
     
     
     
-    private Material pools(double height, double length)
+    /*private Material pools(double height, double length)
     {
         int i = 4;
         i += (length - 80 - 30) / 275;
@@ -116,7 +127,7 @@ public class BillOfMaterial {
         materialHmapDB.get("stolpe").setQty(i);
         return materialHmapDB.get("stolpe");
         
-    }
+    }*/
     
     //remme
     private Material beams(double width, double height, double length)
@@ -163,14 +174,6 @@ public class BillOfMaterial {
     
     public static void main(String[] args) throws FogProjectException
     {
-        BillOfMaterial billOfMaterial = new BillOfMaterial();
-        HashMap<String, Material> hmap = billOfMaterial.getHmap();
-        System.out.println("---- start ----");
-        for(String name: hmap.keySet())
-        {
-            System.out.println("Material: " + hmap.get(name).toString());
-        }
-        System.out.println("---- end ----");
         
     }
 }

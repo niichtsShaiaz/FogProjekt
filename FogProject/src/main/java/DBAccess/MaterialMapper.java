@@ -32,7 +32,17 @@ public class MaterialMapper
         ResultSet rs = stm.executeQuery(sql);
         while(rs.next())
         {
-            materialHmapDB.put(rs.getString("material_name"), new Material(rs.getString("material_comment"), "", rs.getDouble("material_sideA"), rs.getDouble("material_sideB"), 0, 0, 0, rs.getString("material_enhed")));
+            materialHmapDB.put(rs.getString("material_name"), 
+                    new Material(rs.getString("material_comment"), 
+                            "", 
+                            rs.getDouble("material_sideA"), 
+                            rs.getDouble("material_sideB"), 
+                            0, 
+                            0, 
+                            0, 
+                            rs.getString("material_enhed")
+                    )
+            );
         }
         
         return materialHmapDB;
