@@ -96,7 +96,7 @@ public class OrderMapper {
         Statement stm;
         try {
             stm = Connector.connection().createStatement();
-            String sql = "SELECT * FROM order WHERE fk_user_id = " + user.getId() + "";
+            String sql = "SELECT order_id, order_length, order_width, order_roof, order_angel, order_shed, order_shedwidth, order_shedlength, fk_user_id FROM `order` WHERE fk_user_id = "+ user.getId()+ ";";
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 orderList.add(new Order(
