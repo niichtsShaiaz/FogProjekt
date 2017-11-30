@@ -19,7 +19,7 @@ public class Preview {
          sb.append (poles2(width, length));
          sb.append (outerLines(width, length));
          sb.append (flatRoof(width, length));
-         sb.append (rem(width, length));
+         //sb.append (rem(width, length));
        
         return sb.toString();
     }
@@ -34,7 +34,7 @@ public class Preview {
         else 
             space = width;
         
-        for (int i = 300; i<width; i+=300)
+        for (int i = 600; i<=width; i+=300)
         {
             sb.append( "<rect x='"+(length-length-10)+"' y='"+(space)+"' height='"+5+"' width='"+(length+12)+"' style='stroke:#000000; fill:#ff0000 '/>");
             space += space;
@@ -67,6 +67,7 @@ public class Preview {
     
     return sb.toString();
     }
+    
     public static String cornerPoles(int width, int length){
         int sizeX = 10;
         int sizeY = 10;
@@ -80,19 +81,21 @@ public class Preview {
         
         return sb.toString();
     }
+    
     public static String poles(int width, int length){
         int sizeX = 10;
         int sizeY = 10;
         StringBuilder sb = new StringBuilder();
         
-        for (int i = 275; i<length; i+=275)
+        for (int i = 275; i<length-275; i+=275)
         {
-            sb.append( "<rect x='"+(i)+"' y='"+(width-width+70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+            sb.append( "<rect x='"+(i)+"' y='"+(width-width+70)+"' height='"+(sizeY)+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
             sb.append( "<rect x='"+(i)+"' y='"+(width-70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
         }
         
         return sb.toString();
     }
+    
     public static String poles2(int width, int length){
         int sizeX = 10;
         int sizeY = 10;
@@ -106,7 +109,7 @@ public class Preview {
         else 
             space = width;
         
-        for (int i = 300; i<width; i+=300)
+        for (int i = 600; i<=width; i+=300)
         {
             sb.append( "<rect x='"+(length-10)+"' y='"+(space)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
             sb.append( "<rect x='"+(length-length+10)+"' y='"+(space)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");

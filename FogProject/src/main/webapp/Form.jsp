@@ -2,18 +2,10 @@
     int height = 240;
     int width = 240;
     int length = 240;
-    if (request.getParameter("height") != null)
-    {
-        height = Integer.parseInt(request.getParameter("height"));
-    }
     if (request.getParameter("width") != null)
-    {
         width = Integer.parseInt(request.getParameter("width"));
-    }
     if (request.getParameter("length") != null)
-    {
         length = Integer.parseInt(request.getParameter("length"));
-    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -118,7 +110,7 @@
                 <button type="submit" name="command" value="Carport" class="btn btn-primary">Bestil Tilbud</button>
             </form>
             <%if(request.getAttribute("svgDrawing") != null){%>
-                <SVG width="500px" height="500px" viewBox='0 0 <%=width+50%> <%=length+50%>'>
+                <SVG width="500px" height="500px" viewBox='0 0 <%=length+30%> <%=width+10%>'>
                     <%=request.getAttribute("svgDrawing")%>
                 </SVG>
             <%}%>
