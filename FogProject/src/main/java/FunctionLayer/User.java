@@ -35,6 +35,10 @@ public class User {
     public String getRole() {
         return role;
     }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
     
     
 

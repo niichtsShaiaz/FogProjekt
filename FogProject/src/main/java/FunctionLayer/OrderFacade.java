@@ -31,8 +31,8 @@ public class OrderFacade {
     
     public static void main(String[] args) throws FogProjectException
     {
-        User user = new User(1,"awdawd", "adwd", "adwd", "adwda", "awdwad", "adwd");
-        List<Order> orders = getUserOrders(user);
+        //User user = new User(1,"awdawd", "adwd", "adwd", "adwda", "awdwad", "adwd");
+        List<Order> orders = getAllOrders();
         for(int i = 0; i < orders.size(); i++)
             System.out.println("Order: " + orders.get(i).toString());
     }

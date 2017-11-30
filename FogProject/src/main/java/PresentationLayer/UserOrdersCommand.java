@@ -25,7 +25,7 @@ public class UserOrdersCommand extends Command{
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("User");
         List<Order> list = OrderFacade.getUserOrders(user);
-        session.setAttribute("userOrdersList", list);
+        user.setOrderList(list);
         return "UserOrders";
     }
     

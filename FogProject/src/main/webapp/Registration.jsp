@@ -18,7 +18,8 @@ Author     : ezl
         <div id="wrapper">
             <jsp:include page="includes/menu.jsp" />
             <h1>Registration</h1>
-            <form action="" method="post">
+            <form action="FrontController" method="post">
+                <input type="hidden" name="command" value="Register">
                 <div class="form-group">
                     <label>Fornavn</label>
                     <input type="text" class="form-control" name="fornavn">

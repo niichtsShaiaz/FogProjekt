@@ -34,6 +34,7 @@ abstract class Command {
     static Command from( HttpServletRequest request ) {
         String commandName = request.getParameter( "command" );
         System.out.println(commandName);
+        
         if ( commands == null ) {
             initCommands();
         }
