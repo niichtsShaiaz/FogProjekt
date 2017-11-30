@@ -4,7 +4,7 @@
     Author     : Shxnna
 --%>
 
-<%@page import="PresentationLayer.Preview"%>
+<%@page import="FunctionLayer.Preview"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

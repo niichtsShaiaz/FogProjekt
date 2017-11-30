@@ -1,9 +1,9 @@
 PresentationLayer\CreateOrderCommand.class
+DBAccess\Connector.class
+PresentationLayer\FrontController.class
+FunctionLayer\Order.class
 PresentationLayer\UnknownCommand.class
 PresentationLayer\AllOrdersCommand.class
 FunctionLayer\OrderFacade.class
 PresentationLayer\RegisterCommand.class
-DBAccess\Connector.class
-PresentationLayer\FrontController.class
-FunctionLayer\Order.class
 PresentationLayer\Command.class

@@ -22,6 +22,12 @@
         padding: .375rem .75rem;
         border: 1px solid #ced4da;
         border-radius: .25rem; }
+      * body #wrapper form .btn {
+        width: 395px; }
+      * body #wrapper form .btn:last-child {
+        margin-left: 10px;
+        background-color: #28a745;
+        border-color: #28a745; }
     * body #wrapper .order {
       margin: 0 auto;
       margin-bottom: 20px;
@@ -31,5 +37,9 @@
         margin: 20px auto;
         width: 1000px;
         display: none; }
+    * body #wrapper svg {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 100px; }
 
 /*# sourceMappingURL=main.css.map */

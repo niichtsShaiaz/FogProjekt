@@ -29,6 +29,14 @@
 					border: 1px solid #ced4da;
 					border-radius: .25rem;
 				}
+				.btn{
+					width: 395px;
+				}
+				.btn:last-child{
+					margin-left: 10px;
+					background-color: #28a745;
+					border-color: #28a745;
+				}
 			}
 			.order
 			{
@@ -41,6 +49,11 @@
 					width: 1000px;
 					display: none;
 				}
+			}
+			svg{
+				display: block;
+				margin: 0 auto;
+				margin-bottom: 100px;
 			}
 		}
 	}
