@@ -38,7 +38,7 @@ public class Order
         
         //create bill of material here
         this.billOfMaterial = new BillOfMaterial();
-        billOfMaterial.createBillOfMaterial(width, length, length, roof, shed, shedLength);
+        billOfMaterial.createBillOfMaterialv2(width, length, length, roof, shed, shedLength);
     }
 
     public int getId()
