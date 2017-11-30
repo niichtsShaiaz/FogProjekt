@@ -7,7 +7,7 @@
 			<a class="nav-link" href="FrontController?command=AllOrders">Alle ordrer</a>
 		</li>
                 <li class="nav-item">
-			<a class="nav-link" href="FrontController?command=UserOrders">My Orders</a>
+			<a class="nav-link" href="FrontController?command=UserOrders">My Orders</a> 
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="Registration.jsp">registrering</a>
