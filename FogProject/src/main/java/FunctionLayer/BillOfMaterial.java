@@ -89,6 +89,11 @@ public class BillOfMaterial {
         return material;
     }
     
+    public Material Sternbraedder(double length)
+    {
+        return null;
+    }
+    
     
     
     
@@ -174,7 +179,9 @@ public class BillOfMaterial {
     
     public static void main(String[] args) throws FogProjectException
     {
-        
+        BillOfMaterial bom = new BillOfMaterial();
+        //System.out.println(bom.carportRemme(500));
+        //System.out.println(bom.carportRemme(200));
     }
 }
 
