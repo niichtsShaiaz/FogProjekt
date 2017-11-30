@@ -20,13 +20,17 @@ import java.util.logging.Logger;
  */
 public class UserMapper {
     
-    public static void Register(String email, String password) throws FogProjectException{
+    public static void register(String email, String password, String firstName, String lastName, String telephone, String address) throws FogProjectException{
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO user (email, password) VALUES (?, ?);";
+            String SQL = "INSERT INTO user (email, password, firstname, lastname, telephone, address) VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
             ps.setString( 2, password );
+            ps.setString(3, firstName);
+            ps.setString(4, lastName);
+            ps.setString(5, telephone);
+            ps.setString(6, address);
             ps.executeUpdate();
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new FogProjectException( ex.getMessage() );
@@ -36,7 +40,7 @@ public class UserMapper {
     public static User login( String email, String password ) throws FogProjectException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT id, email, firstname, lastname, telephone, address FROM user WHERE email=? AND password=?";
+            String SQL = "SELECT id, email, firstname, lastname, telephone, address, role FROM user WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
             ps.setString( 2, password );
@@ -47,7 +51,8 @@ public class UserMapper {
                 String lastName = rs.getString("lastname");
                 String telephone = rs.getString("telephone");
                 String address = rs.getString("address");
-                User user = new User( id, email, firstName, lastName, telephone, address );
+                String role = rs.getString("role");
+                User user = new User( id, email, firstName, lastName, telephone, address, role);
                 return user;
             } else {
                 throw new FogProjectException( "Could not validate user" );
@@ -59,8 +64,8 @@ public class UserMapper {
     
     public static void main(String[] args) {
         try {
-            User u1 = login("e.z.l@live.com", "1234");
-            System.out.println(u1.getEmail());
+            User user = login("jonatan@bakke.net", "1234");
+            System.out.println(user.getEmail());
         } catch (FogProjectException ex) {
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }

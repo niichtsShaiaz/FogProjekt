@@ -25,9 +25,13 @@ public class OrderFacade {
         return OrderMapper.getAllOrders();
     }
     
+    public static List<Order> getUserOrders(User user)throws FogProjectException{
+        return OrderMapper.getUserOrders(user);
+    }
+    
     public static void main(String[] args) throws FogProjectException
     {
-        //createOrder(300, 300, true, 45, false, 0, 0);
+        //User user = new User(1,"awdawd", "adwd", "adwd", "adwda", "awdwad", "adwd");
         List<Order> orders = getAllOrders();
         for(int i = 0; i < orders.size(); i++)
             System.out.println("Order: " + orders.get(i).toString());

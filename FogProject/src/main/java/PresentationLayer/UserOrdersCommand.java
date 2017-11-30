@@ -6,8 +6,10 @@
 package PresentationLayer;
 
 import FunctionLayer.FogProjectException;
+import FunctionLayer.Order;
+import FunctionLayer.OrderFacade;
 import FunctionLayer.User;
-import FunctionLayer.UserFacade;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,21 +18,15 @@ import javax.servlet.http.HttpSession;
  *
  * @author jmb
  */
-public class RegisterCommand extends Command{
+public class UserOrdersCommand extends Command{
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException {
         HttpSession session = request.getSession();
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String firstName = request.getParameter("fornavn");
-        String lastName = request.getParameter("efternavn");
-        String telephone = request.getParameter("tlf");
-        String address = request.getParameter("adresse");
-        UserFacade.register(email, password, firstName, lastName, telephone, address);
-        User user = UserFacade.login(email, password);
-        session.setAttribute("User", user);
-        return "Form";
+        User user = (User)session.getAttribute("User");
+        List<Order> list = OrderFacade.getUserOrders(user);
+        user.setOrderList(list);
+        return "UserOrders";
     }
     
 }
