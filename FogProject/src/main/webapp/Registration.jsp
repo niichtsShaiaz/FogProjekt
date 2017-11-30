@@ -33,7 +33,7 @@ Author     : ezl
                 </div>
                 <div class="form-group">
                     <label>Adresse</label>
-                    <input type="text" class="form-control" name="adresse">
+                    <input type="text" class="form-control" name="addresse">
                 </div>
                 <div class="form-group">
                     <label>Email</label>

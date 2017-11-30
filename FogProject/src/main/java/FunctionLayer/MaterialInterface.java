@@ -11,10 +11,10 @@ package FunctionLayer;
  * @author ezl
  */
 public interface MaterialInterface {    
-    public String getType();
-    public String getMaterial();
-    public double getWidth();
-    public double getHight();
+    public String getName();
+    public String getComment();
+    public double getSideA();
+    public double getSideB();
     public double getLength();
     public int getQty();
     public double getPrice();
