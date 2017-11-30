@@ -39,11 +39,11 @@
                         <tbody>
                             <%for(int i2 = 0; i2 < ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().size(); i2++){%>
                             <tr>
-                                <th><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getWidth()%>x<%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getLength()%>cm. <%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getType()%></th>
-                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getHight()%></td>
+                                <th><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getSideA()%>x<%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getLength()%>cm. <%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getName()%></th>
+                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getSideB()%></td>
                                 <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getQty()%></td>
-                                <td>Stk</td>
-                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getMaterial()%></td>
+                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getEnhed()%></td>
+                                <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getComment()%></td>
                             </tr>
                             <%}%>
                         </tbody>
