@@ -192,7 +192,7 @@ public class BillOfMaterial {
     private Material noRoofSpær(double width, double length){
         int afstandMellemSpær = 55;
         int spærQty = (int) (length / afstandMellemSpær);
-        return new Material("45x195mm. spærtræ ubh.", "Spær, monteres på rem", 10, width, 10, spærQty, 15, "Stk");
+        return new Material("45x195mm. spærtræ ubh.", "Spær, monteres på rem", 10, width, 10, spærQty, 15, "Stk"); 
     }
     
     private Material noRoofTag(double width, double length){
