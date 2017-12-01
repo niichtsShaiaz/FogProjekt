@@ -16,10 +16,10 @@ public class Preview {
          
          sb.append (cornerPoles(width, length));
          sb.append (poles(width, length));
-         //sb.append (poles2(width, length)); //error når bredde er <= 300
+         sb.append (poles2(width, length)); //error når bredde er < 300
          sb.append (outerLines(width, length));
          sb.append (flatRoof(width, length));
-         //sb.append (rem(width, length)); //error når bredde er <= 300
+         sb.append (rem(width, length)); //error når bredde er < 300
        
         return sb.toString();
     }
