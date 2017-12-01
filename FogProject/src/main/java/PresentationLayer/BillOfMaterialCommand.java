@@ -31,7 +31,7 @@ public class BillOfMaterialCommand extends Command{
        boolean shed = Boolean.parseBoolean(request.getParameter("shed"));
        
        BillOfMaterial bom = new BillOfMaterial();
-       bom.createBillOfMaterial(width, heigth, length, roof, shed, 0);
+       bom.createBillOfMaterialv2(width, heigth, length, roof, shed, 0);
            
         return "";
     }
