@@ -33,12 +33,8 @@ public class BillOfMaterialCommand extends Command{
        int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
        
        BillOfMaterial bom = new BillOfMaterial();
-<<<<<<< HEAD
        bom.createBillOfMaterialv2(width, heigth, length, roof, angel, shed, shedWidth);
-=======
-       bom.createBillOfMaterialv2(width, heigth, length, roof, shed, 0);
->>>>>>> Jbakke
-           
+       
         return "";
     }
     

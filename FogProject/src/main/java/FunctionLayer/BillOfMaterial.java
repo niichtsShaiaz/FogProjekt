@@ -41,6 +41,11 @@ public class BillOfMaterial {
             materialList.add(roofSten(width, length, angel));
             materialList.add(roofRygSten(length));
         }
+        else
+        {
+            materialList.add(noRoofSpær(width, length));
+            materialList.add(noRoofTag(width, length));
+        }
         if(shed)
         {
             
