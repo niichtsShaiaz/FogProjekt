@@ -19,7 +19,7 @@ public class Preview {
          sb.append (poles2(width, length));
          sb.append (outerLines(width, length));
          sb.append (flatRoof(width, length));
-         //sb.append (rem(width, length));
+         sb.append (rem(width, length));
        
         return sb.toString();
     }
