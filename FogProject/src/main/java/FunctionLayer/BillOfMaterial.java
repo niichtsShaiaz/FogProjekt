@@ -285,6 +285,7 @@ public class BillOfMaterial {
     public static void main(String[] args) throws FogProjectException
     {
         BillOfMaterial bom = new BillOfMaterial();
+        System.out.println(bom.Sinus(780, 40));
     }
 }
 
