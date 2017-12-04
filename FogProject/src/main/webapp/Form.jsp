@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label>Bredde</label>
                     <select name="width">
-                        <%for (int i = 240; i < 750; i += 30)
+                        <%for (int i = 240; i <= 750; i += 30)
                 {%>
                         <option value="<%=i%>" <%if (i == width)
                 {%>selected=""<%}%> ><%=i%></option>
@@ -52,7 +52,7 @@
                 <div class="form-group">
                     <label>Længde</label>
                     <select name="length">
-                        <%for (int i = 240; i < 750; i += 30)
+                        <%for (int i = 240; i <= 780; i += 30)
                 {%>
                         <option value="<%=i%>"<%if (i == length)
                     {%>selected=""<%}%> ><%=i%></option>

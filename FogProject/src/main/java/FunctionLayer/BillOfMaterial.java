@@ -41,6 +41,11 @@ public class BillOfMaterial {
             materialList.add(roofSten(width, length, angel));
             materialList.add(roofRygSten(length));
         }
+        else
+        {
+            materialList.add(noRoofSpær(width, length));
+            materialList.add(noRoofTag(width, length));
+        }
         if(shed)
         {
             
@@ -262,9 +267,25 @@ public class BillOfMaterial {
     }
     // tag med rejsning -- slut --
     
+    private Material noRoofSpær(double width, double length){
+        int afstandMellemSpær = 55;
+        int spærQty = (int) (length / afstandMellemSpær);
+        return new Material("45x195mm. spærtræ ubh.", "Spær, monteres på rem", 10, width, 10, spærQty, 15, "Stk"); 
+    }
+    
+    private Material noRoofTag(double width, double length){
+        int plastmoEcoliteLængde = 0;
+        int plastmoEcoliteBrede = 0;
+        int antalL = (int) (length / plastmoEcoliteLængde);
+        int antalB = (int) (width / plastmoEcoliteBrede);
+        int qty = antalL * antalB;
+        return new Material("Plastmo Ecolite", "tagplader monteres på spær", 0, 0, plastmoEcoliteLængde, qty, 15.0, "stk");
+    }
+    
     public static void main(String[] args) throws FogProjectException
     {
         BillOfMaterial bom = new BillOfMaterial();
+        System.out.println(bom.Sinus(780, 40));
     }
 }
 

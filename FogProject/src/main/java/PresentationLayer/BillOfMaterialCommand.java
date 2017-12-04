@@ -34,7 +34,7 @@ public class BillOfMaterialCommand extends Command{
        
        BillOfMaterial bom = new BillOfMaterial();
        bom.createBillOfMaterialv2(width, heigth, length, roof, angel, shed, shedWidth);
-           
+       
         return "";
     }
     
