@@ -1,3 +1,15 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%
+    List<String> errorMsgList;
+    if (session.getAttribute("errorMsgList") != null)
+    {
+        errorMsgList = (List<String>) session.getAttribute("errorMsgList");
+    } else
+    {
+        errorMsgList = new ArrayList<>();
+    }
+%>
 <%--
 Document   : Login
 Created on : 21-11-2017, 20:58:31
@@ -18,6 +30,7 @@ Author     : ezl
         <div id="wrapper">
             <jsp:include page="includes/menu.jsp" />
             <h1>Login</h1>
+
             <form action="FrontController" method="post">
                 <input type="hidden" name="command" value="Login">
                 <div class="form-group">
@@ -28,6 +41,10 @@ Author     : ezl
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" placeholder="********">
                 </div>
+                <%for (int i = 0; i < errorMsgList.size(); i++)
+                    {%>
+                <p class="errormsg"><%=errorMsgList.get(i)%></p>
+                <%}%>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>

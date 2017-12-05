@@ -8,6 +8,10 @@ package PresentationLayer;
 import FunctionLayer.FogProjectException;
 import FunctionLayer.User;
 import FunctionLayer.UserFacade;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,13 +23,24 @@ import javax.servlet.http.HttpSession;
 public class LoginCommand extends Command{
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException {
+    String execute(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        User user = UserFacade.login(email, password);
-        session.setAttribute("User", user);
-        return "Form";
+        User user;
+        try
+        {
+            user = UserFacade.login(email, password);
+            session.setAttribute("User", user);
+            return "Form";
+        } catch (FogProjectException ex)
+        {
+            List<String> errorMsgList = errorMsgList = new ArrayList<String>();
+            session.setAttribute("errorMsgList", errorMsgList);
+            
+            errorMsgList.add("Forkert Email og eller Password, prøv igen eller kontakt support");
+        }
+        return "Login";
     }
     
 }

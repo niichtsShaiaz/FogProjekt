@@ -20,6 +20,10 @@
 			form{
 				margin: 20px auto;
 				width: 800px;
+				.errormsg{
+				color: #f00;
+				//text-align: center;
+				}
 				input[type="checkbox"]{
 					width: 13px;
 				}
