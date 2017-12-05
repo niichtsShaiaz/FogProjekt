@@ -210,5 +210,90 @@ public class BillOfMaterial {
         //System.out.println(bom.carportRemme(500));
         //System.out.println(bom.carportRemme(200));
     }
+    
+    // ********************************** Beslag of Skruer til fladt tag ****************************************************
+    
+    //Skruer til tagplader
+    private Material noRoofTagSkruer(double width, double length){
+        double arealm2 = (width * length) / 100;
+        int skruerPerM2 = 12;
+        double skruer50stkPris = 62.5;
+        int antalSkruer = (int) (arealm2 * skruerPerM2);
+        double totalPrisSkruer = (antalSkruer / 50) * skruer50stkPris;
+        return new Material("Plastmo bundskruer 50 stk.", "Skruer til tagplader", 0, 0, 0, skruerPerM2, totalPrisSkruer, "Pakke");
+    }
+    
+    //Til vindkryds på spær
+    private Material noRoofHulbånd(){
+        double rullePris = 250;
+        int qty = 2;
+        return new Material("Hulbånd 1x20mm 10 mtr.", "Til vindkryds på spær", 0, 0, 0, qty, rullePris*qty, "Rulle");
+    }
+    
+    //Til montering af spær på rem højre
+    private Material noRoofBeslagTilRemHøjre(double width, double length){
+        int afstandMellemSpær = 55;
+        int spærQty = (int) (length / afstandMellemSpær);
+        int beslagPrisStk = 35;
+        return new Material("Universal 190mm højre", "Til montering af spær på rem", 0, 0, 0, spærQty, beslagPrisStk, "Stk");
+    }
+    
+    //Til montering af spær på rem venstre
+    private Material noRoofBeslagTilRemVenstre(double width, double length){
+        int afstandMellemSpær = 55;
+        int spærQty = (int) (length / afstandMellemSpær);
+        int beslagPrisStk = 35;
+        return new Material("Universal 190mm venstre", "Til montering af spær på rem", 0, 0, 0, spærQty, beslagPrisStk, "Stk");
+    }
+    
+    //Til montering af stern&vandbrædt
+    private Material noRoofSternOgVandbrædtSkruer(){
+        int pris250stk = 150;
+        int qty = 1;
+        return new Material("4,5 x 60 mm Skruer 250 stk", "Til montering af stern&vandbrædt", 0, 0, 0, qty, pris250stk*qty, "Pakke");
+    }
+    
+    //Til montering af universalbeslag + hulbånd
+    private Material noRoofUniversalbeslagHulbåndSkruer(){
+        int pris250stk = 100;
+        int qty = 1;
+        return new Material("4,0 x 50 mm. beslagskruer 250 stk.", "Til montering af universalbeslag + hulbånd", 0, 0, 0, qty, pris250stk*qty, "Pakke");
+    }
+    
+    //Til montering af rem på stolper
+    private Material noRoofBræddeBolte(double length){
+        int boltePerStople = 3;
+        int prisPerBolt = 5;
+        int antalStopler = 4;
+        antalStopler += (length - 80 - 30) / 275;
+        int qtyBolte = boltePerStople * antalStopler;
+        int totalPris = qtyBolte * prisPerBolt;
+        return new Material("Bræddebolt 10 x 120 mm.", "Til montering af rem på stolper", 0, 0, 0, qtyBolte, totalPris, "stk");
+    }
+    
+    //Til montering af rem på stolper
+    private Material noRoofFirkantSkiver(double length){
+        int firkantSkivePris = 12;
+        int firkantSkiverPerStople = 2;
+        int antalStopler = 4;
+        antalStopler += (length - 80 - 30) / 275;
+        int qtyFirkantSkiver = antalStopler * firkantSkiverPerStople;
+        int totalPris = qtyFirkantSkiver * firkantSkivePris;
+        return new Material("firkantskiver 40x40x11 mm", "Til montering af rem på stopler", 0, 0, 0, qtyFirkantSkiver, totalPris, "stk");
+    }
+    
+    //Til montering af yderste beklædning
+    private Material noRoofYdersteBeklædningSkruer(){
+        int prisPer400stk = 600;
+        int qty = 2;
+        return new Material("4,5 x 70 mm. Skruer 400 stk.", "Til montering af yderste beklædning", 0, 0, 0, qty, prisPer400stk*qty, "Pakke");
+    }
+    
+    //Til montering af inderste beklædning
+    private Material noRoofIndersteBeklædningSkruer(){
+        int prisPer300stk = 400;
+        int qty = 2;
+          return new Material("4,5 x 50 mm. Skruer 300 stk.", "Til montering af inderste beklædning", 0, 0, 0, qty, prisPer300stk*qty, "Pakke");
+    }
 }
 
