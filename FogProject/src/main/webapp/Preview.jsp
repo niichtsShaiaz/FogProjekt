@@ -17,17 +17,17 @@
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
-        
+
     </head>
     <body>
-    <jsp:include page="includes/menu.jsp" />
+        <jsp:include page="includes/menu.jsp" />
         <SVG width="1000" height=1000 >
 
-        <%=Preview.draw(600,780)%>
+        <%=Preview.draw(340, 780, true, 180)%>
+        
 
-
-        </SVG>
-    </body>
+    </SVG>
+</body>
 
 
 </html>
