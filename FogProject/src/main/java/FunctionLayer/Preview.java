@@ -40,6 +40,17 @@ public class Preview {
        
         return sb.toString();
     }
+    public static String draw2(int width, int length, boolean shed, int shedLength){
+        StringBuilder sb = new StringBuilder();
+        sb.append(sideShed(width, length, shedLength));
+        sb.append(sidePoles(width, length));
+        sb.append(sideRoof(width, length));
+        sb.append(arrows2(width,length));
+         sb.append(arrowHead2(width,length));
+         sb.append(text2(width,length));
+        
+        return sb.toString();
+    }
     public static String rem(int width, int length){
         int space = 0;
         StringBuilder sb = new StringBuilder();
@@ -100,9 +111,9 @@ public class Preview {
         StringBuilder sb = new StringBuilder();
 
         sb.append( "<rect x='"+(length-length+10+100)+"' y='"+(width-width+70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length-10+100)+"' y='"+(width-width+70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-25+100)+"' y='"+(width-width+70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
         sb.append( "<rect x='"+(length-length+10+100)+"' y='"+(width-70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length-10+100)+"' y='"+(width-70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-25+100)+"' y='"+(width-70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
         
         return sb.toString();
     }
@@ -176,6 +187,62 @@ public class Preview {
         return sb.toString();
     }
     
+    public static String sidePoles(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        int height = 210;
+        
+        sb.append("<rect x='"+(length-length+10+100)+"' y='"+120+"' height='"+210+"' width='"+5+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append("<rect x='"+(length-15+100)+"' y='"+120+"' height='"+210+"' width='"+5+"' style='stroke:#000000; fill: #000000'/>");
+        for (int i = 275; i<length-200; i+=275)
+        {
+            sb.append( "<rect x='"+(i+100)+"' y='"+(120)+"' height='210' width='5' style='stroke:#000000; fill: #000000'/>");
+            sb.append( "<rect x='"+(i+100)+"' y='"+(120)+"' height='210' width='5' style='stroke:#000000; fill: #000000'/>");
+        }
+        return sb.toString();
+    }
+    public static String sideRoof(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append( "<rect x='"+100+"' y='"+100+"' height='20' width='"+length+"' style='stroke:#000000; fill: #000000'/>");
+        
+        
+        
+        return sb.toString();
+    }
+    public static String sideShed(int width, int length, int shedWidth){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append( "<rect x='"+(length-shedWidth-15+100)+"' y='"+120+"' height='210' width='"+shedWidth+"' style='stroke:#000000; fill: #3b3b3b'/>");
+        
+        return sb.toString();
+    }
+    public static String arrows2(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<line x1='100' y1='80' x2='"+(length+100)+"' y2='80' style='stroke:rgb(0,0,0);stroke-width:2' />");
+        sb.append("<line x1='80' y1='100' x2='80' y2='"+(230+100) +"' style='stroke:rgb(0,0,0);stroke-width:2' />");
+        
+        return sb.toString();
+    }
+    public static String arrowHead2(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<polygon points='100,80 110,70 110,90' style='fill:lime;stroke:purple;stroke-width:1' />");
+        sb.append("<polygon points='80,100, 90,110 70,110' style='fill:lime;stroke:purple;stroke-width:1' />");
+        
+        sb.append("<polygon points='"+(length+100)+",80 "+(length+90)+",70 "+(length+90)+",90' style='fill:lime;stroke:purple;stroke-width:1' />");
+        sb.append("<polygon points='80,"+(230+100)+", 90,"+(230+90)+" 70,"+(230+90)+"' style='fill:lime;stroke:purple;stroke-width:1' />");
+        
+        
+        return sb.toString();
+    }
+    public static String text2(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("<text x='40' y='"+(230/2+100)+"' fill='black' transform='rotate(-90 40,"+(230/2+100)+")'> "+230+" cm</text>");
+        sb.append("<text x='"+(length/2+100)+"' y='60' fill='black'> "+length+" cm</text>");
+               
+        //<text x="0" y="15" fill="red">I love SVG!</text>
+        return sb.toString();
+    }
     
     public static void main(String[] args) {
         

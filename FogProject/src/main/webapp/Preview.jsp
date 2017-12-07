@@ -23,7 +23,7 @@
         <jsp:include page="includes/menu.jsp" />
         <SVG width="1000" height=1000 >
 
-        <%=Preview.draw(340, 780, true, 180)%>
+        <%=Preview.draw2(600, 600, true, 180)%>
         
 
     </SVG>
