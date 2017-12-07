@@ -25,6 +25,7 @@ abstract class Command {
         commands.put("Register", new RegisterCommand());
         commands.put("UserOrders", new UserOrdersCommand());
         commands.put("drawing", new DrawingCommand());
+        commands.put("LogOut", new LogOutCommand());
     }
     
     public static int getSize()

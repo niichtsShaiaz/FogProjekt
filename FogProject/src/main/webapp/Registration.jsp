@@ -1,3 +1,15 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%
+    List<String> errorMsgList;
+    if (session.getAttribute("errorMsgList") != null)
+    {
+        errorMsgList = (List<String>) session.getAttribute("errorMsgList");
+    } else
+    {
+        errorMsgList = new ArrayList<>();
+    }
+%>
 <%--
 Document   : Login
 Created on : 21-11-2017, 20:58:31
@@ -48,6 +60,10 @@ Author     : ezl
                     <label>Re-type Password</label>
                     <input type="password" class="form-control" name="password2" placeholder="********">
                 </div>
+                <%for (int i = 0; i < errorMsgList.size(); i++)
+                    {%>
+                <p class="errormsg"><%=errorMsgList.get(i)%></p>
+                <%}%>
                 <button type="submit" class="btn btn-primary">Registrer</button>
             </form>
         </div>

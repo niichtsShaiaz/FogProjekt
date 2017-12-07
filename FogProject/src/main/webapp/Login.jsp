@@ -9,6 +9,9 @@
     {
         errorMsgList = new ArrayList<>();
     }
+    String email = "";
+    if(session.getAttribute("email") != null)
+        email = (String)session.getAttribute("email");
 %>
 <%--
 Document   : Login
@@ -35,7 +38,7 @@ Author     : ezl
                 <input type="hidden" name="command" value="Login">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" name="email" class="form-control">
+                    <input type="email" name="email" value="<%=email%>" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>

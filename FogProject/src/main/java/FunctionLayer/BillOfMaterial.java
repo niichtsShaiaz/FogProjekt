@@ -46,9 +46,18 @@ public class BillOfMaterial {
             materialList.add(noRoofSpær(width, length));
             materialList.add(noRoofTag(width, length));
         }
+        
         if(shed)
         {
-            
+            if(roof)
+            {
+                materialList.add(sternBraedderSkur(shedLength));
+                materialList.add(skurRemme(shedLength));
+            }
+            else
+            {
+                
+            }
         }
     }
     
@@ -77,10 +86,17 @@ public class BillOfMaterial {
     //skur -+-+
     public Material sternBraedderSkur(double shedLength)
     {
+        int i = 1;
+        if(shedLength < 600)
+        {
+            i += shedLength / 600;
+            if(600%shedLength < 0)
+                i++;
+        }
         Material material = materialHMap.getHmap("bræt");
         material.setLength(shedLength);
         material.setComment("Sternbrædder til siderne Skur del ( deles )");
-        material.setQty(0);
+        material.setQty(i);
         material.setPrice(0);
         return material;
     }
@@ -100,9 +116,12 @@ public class BillOfMaterial {
     {
         int i = 4;
         if(shed)
+        {
             i += ((length - shedLength - 275 - 80 - 30) / 275) * 2;
-        else
             i += 7;
+        }
+        else
+            i += ((length - 275 - 80 - 30) / 275) * 2;
         
         Material material = materialHMap.getHmap("stolpe");
         material.setLength(300 + 90);
@@ -125,10 +144,18 @@ public class BillOfMaterial {
     //skur -+-+
     public Material skurRemme(double shedLength)
     {
+        int i = 1;
+        if(shedLength < 600)
+        {
+            i += shedLength / 600;
+            if(600%shedLength < 0)
+                i++;
+        }
+        
         Material material = materialHMap.getHmap("spærtræ");
         material.setLength(shedLength);
         material.setComment("Remme i sider, sadles ned i stolper Skur del");
-        material.setQty(0);
+        material.setQty(i);
         material.setPrice(0);
         return material;
     }
@@ -137,9 +164,9 @@ public class BillOfMaterial {
     public Material reglarLøsholteISiderneAfSkuret(double shedLength)
     {
         Material material = materialHMap.getHmap("reglar");
-        material.setLength(shedLength + 80);
+        material.setLength(shedLength);
         material.setComment("Løsholter i siderne af skur");
-        material.setQty(0);
+        material.setQty(4);
         material.setPrice(0);
         return material;
     }
