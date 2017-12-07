@@ -6,6 +6,10 @@
 package PresentationLayer;
 
 import java.io.IOException;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.SimpleFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,11 +30,18 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
+        configuration.Conf.myLogger.addHandler(new ConsoleHandler());
+        if(configuration.Conf.PRODUCTION){
+            FileHandler fileHandler = new FileHandler(configuration.Conf.LOGFILEPATH);
+            fileHandler.setFormatter(new SimpleFormatter());
+            configuration.Conf.myLogger.addHandler(fileHandler);
+        }
         try {
             Command action = Command.from( request );
             String view = action.execute( request, response );
             request.getRequestDispatcher(view + ".jsp" ).forward( request, response );
         } catch ( Exception ex ) {
+            configuration.Conf.myLogger.log(Level.SEVERE, null, ex);
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
         }
