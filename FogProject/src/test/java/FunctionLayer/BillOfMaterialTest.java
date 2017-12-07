@@ -65,24 +65,24 @@ public class BillOfMaterialTest
 //        fail("The test case is a prototype.");
 //    }
 
-    @Test
-    public void testStolper() throws FogProjectException
-    {
-        System.out.println("stolper");
-        double height = 600.0;
-        double length = 780.0;
-        boolean shed = false;
-        BillOfMaterial instance = new BillOfMaterial();
-        int exp = 4;
-        if(shed)
-            exp += 7;
-        else
-            exp += 2;
-        
-        Material result = instance.stolper(height, length, shed);
-        assertEquals(exp, result.getQty());
-        // TODO review the generated test code and remove the default call to fail.
-    }
+//    @Test
+//    public void testStolper() throws FogProjectException
+//    {
+//        System.out.println("stolper");
+//        double height = 600.0;
+//        double length = 780.0;
+//        boolean shed = false;
+//        BillOfMaterial instance = new BillOfMaterial();
+//        int exp = 4;
+//        if(shed)
+//            exp += 7;
+//        else
+//            exp += 2;
+//        
+//        Material result = instance.stolper(height, length, shed);
+//        assertEquals(exp, result.getQty());
+//        // TODO review the generated test code and remove the default call to fail.
+//    }
 
 //    @Test
 //    public void testCarportRemme()

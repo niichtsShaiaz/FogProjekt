@@ -3,7 +3,9 @@
     Created on : 22-Nov-2017, 00:53:18
     Author     : Shxnna
 --%>
-
+<%
+    
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +15,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        
     </body>
 </html>
