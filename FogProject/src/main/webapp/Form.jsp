@@ -31,12 +31,7 @@
             <p class="pCenterAlign">Alle mål er i centimeter</p>
 
             <form action="FrontController" method="post">
-                <div class="form-group">
-                    <label>Højde</label>
-                    <select name="height">
-                        <option value="0">0</option>
-                    </select>
-                </div>
+                <input type="hidden" name="height" value="0">
 
                 <div class="form-group">
                     <label>Bredde</label>
