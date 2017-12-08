@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class Order
 {
-    private int id;
     private BillOfMaterial billOfMaterial;
+    private int id;
     private User user;
     private double width;
     private double length;
@@ -35,10 +35,9 @@ public class Order
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
         this.user = user;
-        
         //create bill of material here
         this.billOfMaterial = new BillOfMaterial();
-        billOfMaterial.createBillOfMaterialv2(width, length, length, roof, angel, shed, shedLength);
+        this.billOfMaterial.createBillOfMaterialv2(width, 300, length, roof, angel, shed, shedLength);
     }
 
     public int getId()

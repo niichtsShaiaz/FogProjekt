@@ -17,7 +17,6 @@ public class OrderFacade {
     {
         Order order = new Order(0, width, lenght, roof, angel, shed, shedWidth, shedLength, user);
         OrderMapper.CreateOrder(order);
-        
     }
     
     public static List<Order> getAllOrders() throws FogProjectException

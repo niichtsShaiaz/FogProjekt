@@ -46,18 +46,14 @@ public class BillOfMaterial {
             materialList.add(noRoofSpær(width, length));
             materialList.add(noRoofTag(width, length));
         }
-        
         if(shed)
         {
-            if(roof)
-            {
-                materialList.add(sternBraedderSkur(shedLength));
-                materialList.add(skurRemme(shedLength));
-            }
-            else
-            {
-                
-            }
+            materialList.add(sternBraedderSkur(shedLength));
+            materialList.add(skurRemme(shedLength));
+            materialList.add(reglarLøsholteISiderneAfSkuret(shedLength));
+            materialList.add(reglarLøsholteIGavleAfSkuret(shedLength));
+            materialList.add(brætBeklædningAfSkur1Og2(shedLength));
+            materialList.add(taglægteBagsidenAfDøren());
         }
     }
     
@@ -93,7 +89,7 @@ public class BillOfMaterial {
             if(600%shedLength < 0)
                 i++;
         }
-        Material material = materialHMap.getHmap("bræt");
+        Material material = materialHMap.getHmap("brædt25x150");
         material.setLength(shedLength);
         material.setComment("Sternbrædder til siderne Skur del ( deles )");
         material.setQty(i);
@@ -177,7 +173,7 @@ public class BillOfMaterial {
         Material material = materialHMap.getHmap("reglar");
         material.setLength(shedLength);
         material.setComment("Løsholter i gavle af skur");
-        material.setQty(2);
+        material.setQty(6);
         material.setPrice(0);
         return material;
     }
@@ -210,7 +206,7 @@ public class BillOfMaterial {
         Material material = materialHMap.getHmap("brædt19x100");
         material.setLength(shedLength);
         material.setComment("Beklædning af skur 1 på 2");
-        material.setQty(0);
+        material.setQty(148);
         material.setPrice(0);
         return material;
     }

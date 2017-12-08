@@ -20,7 +20,7 @@ public class CreateOrderCommand extends Command
 {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException
+    String execute(HttpServletRequest request, HttpServletResponse response)
     {   
         boolean roof = false;
         boolean shed = false;
@@ -29,7 +29,22 @@ public class CreateOrderCommand extends Command
         if(request.getParameter("shed") != null)
             shed = true;
         HttpSession session = request.getSession();
-        OrderFacade.createOrder(Double.parseDouble(request.getParameter("width")), Double.parseDouble(request.getParameter("length")), roof, Double.parseDouble(request.getParameter("angel")), shed, Double.parseDouble(request.getParameter("shedWidth")), Double.parseDouble(request.getParameter("shedLength")), (User)session.getAttribute("User"));
+        try{
+            OrderFacade.createOrder(
+                    Double.parseDouble(request.getParameter("width")),
+                    Double.parseDouble(request.getParameter("length")),
+                    roof, 
+                    Double.parseDouble(request.getParameter("angel")),
+                    shed,
+                    Double.parseDouble(request.getParameter("shedWidth")),
+                    Double.parseDouble(request.getParameter("shedLength")),
+                    (User)session.getAttribute("User")
+            );
+        }
+        catch(FogProjectException ex)
+        {
+            
+        }
         return "ConfirmationPage";
     }
     
