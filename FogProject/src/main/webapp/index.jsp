@@ -4,7 +4,10 @@
     Author     : Shxnna
 --%>
 <%
-    
+    String msg = "";
+    if(session.getAttribute("error") != null){
+        msg = (String) session.getAttribute("error");
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +18,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        
+        <h1><%=msg %></h1>
     </body>
 </html>
