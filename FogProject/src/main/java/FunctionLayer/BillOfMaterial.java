@@ -239,7 +239,7 @@ public class BillOfMaterial {
     
     //Til montering af spær på rem højre
     private Material beslagTilRemHøjre(double width, double length, boolean roof){
-        int afstandMellemSpær;
+        int afstandMellemSpær; 
         if(roof)
             afstandMellemSpær = 55;
         else
