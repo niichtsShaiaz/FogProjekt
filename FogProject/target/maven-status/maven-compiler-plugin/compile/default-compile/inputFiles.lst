@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\FunctionLayer\MaterialInterface.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\PresentationLayer\UnknownCommand.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\PresentationLayer\AllOrdersCommand.java
@@ -20,32 +19,8 @@ C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\Presentati
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\DBAccess\Connector.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\FunctionLayer\FogProjectException.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\PresentationLayer\FrontController.java
+C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\configuration\Conf.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\DBAccess\MaterialMapper.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\DBAccess\UserMapper.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\PresentationLayer\BillOfMaterialCommand.java
 C:\Users\ezl\Desktop\CPH\SEM2\Fog\FogProjekt\FogProject\src\main\java\PresentationLayer\DrawingCommand.java
-=======
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\MaterialHashMap.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\OrderFacade.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\UserFacade.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\DBAccess\OrderMapper.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\FogProjectException.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\FrontController.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\DBAccess\Connector.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\LoginCommand.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\DBAccess\MaterialMapper.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\BillOfMaterial.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\Command.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\MaterialInterface.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\AllOrdersCommand.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\UnknownCommand.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\BillOfMaterialCommand.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\UserOrdersCommand.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\User.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\Order.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\CreateOrderCommand.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\configuration\Conf.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\RegisterCommand.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\DBAccess\UserMapper.java
-C:\Users\jmb\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\Material.java
->>>>>>> Jbakke

@@ -34,6 +34,22 @@ public class BillOfMaterial {
     public void createBillOfMaterialv2(double width, double height, double length, boolean roof, double angel, boolean shed, double shedLength)
     {
         materialList.add(stolper(length, shed, shedLength));
+        
+        //---
+        
+        
+        materialList.add(Hulbånd());
+        materialList.add(beslagTilRemHøjre(width, length, roof));
+        materialList.add(beslagTilRemVenstre(width, length, roof));
+        materialList.add(sternOgVandbrædtSkruer());
+        materialList.add(universalbeslagHulbåndSkruer(roof));
+        materialList.add(bræddeBolte(length, shed, shedLength));
+        materialList.add(firkantSkiver(length, shed, shedLength));
+        materialList.add(ydersteBeklædningSkruer());
+        materialList.add(indersteBeklædningSkruer());
+        materialList.add(staldDørsGreb());
+        materialList.add(tHængsel());
+            
         if(roof)
         {
             materialList.add(roofSpær(width, length, angel));
@@ -45,6 +61,7 @@ public class BillOfMaterial {
         {
             materialList.add(noRoofSpær(width, length));
             materialList.add(noRoofTag(width, length));
+            materialList.add(noRoofTagSkruer(width, length));
         }
         if(shed)
         {
@@ -67,8 +84,7 @@ public class BillOfMaterial {
         material.setPrice(0);
         return material;
     }
-    
-<<<<<<< HEAD
+
     //-+-+
     public Material sternBraedder(double length)
     {
@@ -109,8 +125,6 @@ public class BillOfMaterial {
         return material;
     }
     
-=======
->>>>>>> Jbakke
     public Material stolper(double length, boolean shed, double shedLength)
     {
         int i = 4;
