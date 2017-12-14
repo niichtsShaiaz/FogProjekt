@@ -56,8 +56,6 @@ public class UserMapperTest {
             stmt.execute( "drop table if exists user" );
             stmt.execute( "create table user like usertest" );
             stmt.execute( "insert into user select * from usertest" );
-            stmt.execute( "drop table if exists material" );
-            stmt.execute( "create table material like materialtest" );
         }
 
     } catch ( ClassNotFoundException | SQLException ex ) {
