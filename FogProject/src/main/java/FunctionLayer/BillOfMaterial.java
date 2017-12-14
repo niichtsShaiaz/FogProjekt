@@ -303,11 +303,6 @@ public class BillOfMaterial {
         return new Material("Plastmo Ecolite", "tagplader monteres på spær", 0, 0, plastmoEcoliteLængde, qty, 15.0, "stk");
     }
     
-    public static void main(String[] args) throws FogProjectException
-    {
-        BillOfMaterial bom = new BillOfMaterial();
-        System.out.println(bom.Sinus(780, 40));
-    }
     
     // ********************************** Beslag of Skruer til fladt tag ****************************************************
     
