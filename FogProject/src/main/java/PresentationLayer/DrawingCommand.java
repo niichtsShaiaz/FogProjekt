@@ -22,7 +22,7 @@ public class DrawingCommand extends Command
     {
         int width = Integer.parseInt(request.getParameter("width"));
         int length = Integer.parseInt(request.getParameter("length"));
-        String str = draw(width, length);
+        String str = draw(width, length,false,0);
         request.setAttribute("svgDrawing", str);
         return "Form";
     }
