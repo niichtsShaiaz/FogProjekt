@@ -408,7 +408,7 @@ public class BillOfMaterialTest {
             double length = 730;
             double angle = 15;
             BillOfMaterial instance = new BillOfMaterial();
-            int expResult = -620;
+            int expResult = 352;
             Material result = instance.roofSten(width, length, angle);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
@@ -423,9 +423,9 @@ public class BillOfMaterialTest {
     public void testRoofRygSten() {
         try {
             System.out.println("roofRygSten");
-            double length = 0.0;
+            double length = 730;
             BillOfMaterial instance = new BillOfMaterial();
-            int expResult = 0;
+            int expResult = 21;
             Material result = instance.roofRygSten(length);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {

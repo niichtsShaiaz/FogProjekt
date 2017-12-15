@@ -259,8 +259,9 @@ public class BillOfMaterial {
     private double Sinus(double sideA, double vinkelB)
     {
         double vinkelC = 90;
-        double vinkelA = 180 - 90 - vinkelB;
-        return (sideA * Math.sin(vinkelC)) / (Math.sin(vinkelA));
+        double vinkelA = 180 - vinkelC - vinkelB;
+        double res = (sideA *  Math.sin( Math.toRadians(vinkelC))) / (Math.sin( Math.toRadians(vinkelA)));
+        return res;
     }
     
     public Material roofSpær(double width, double length, double angle){
@@ -283,7 +284,7 @@ public class BillOfMaterial {
     }
     public Material roofRygSten(double length){
         int rygTagStensLængde = 40;
-        int rygTagStensQty = (int) (length / rygTagStensLængde);
+        int rygTagStensQty = (int) (length / rygTagStensLængde) + 3;
         return new Material("Rygsten", "Sten", 20, 5, rygTagStensLængde, rygTagStensQty, 15, "Stk");
     }
     // tag med rejsning -- slut --
