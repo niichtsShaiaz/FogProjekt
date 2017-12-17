@@ -20,7 +20,7 @@ public class User {
     private String telephone;
     private String address;
     private String role;
-    private List<Order> orderList = new ArrayList<>();
+    private List<Order> ordersList = new ArrayList<>();
 
     public User(int id, String email, String firstName, String lastName, String telephone, String address, String role) {
         this.id = id;
@@ -35,12 +35,6 @@ public class User {
     public String getRole() {
         return role;
     }
-
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
-    }
-    
-    
 
     public int getId() {
         return id;
@@ -65,17 +59,15 @@ public class User {
     public String getAddress() {
         return address;
     }
-    
-    public List<Order> getOrderList(){ return orderList;}
-    
-    public void addOrder(Order order)
-    {
-        orderList.add(order);
-    }
 
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + ", telephone=" + telephone + ", address=" + address + '}';
+    }
+
+    public void setOrderList(List<Order> list)
+    {
+        ordersList = list;
     }
     
     

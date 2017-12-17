@@ -3,6 +3,12 @@ Document   : index
 Created on : 22-Nov-2017, 00:53:18
 Author     : Shxnna
 --%>
+<%
+    String msg = "";
+    if(session.getAttribute("error") != null){
+        msg = (String) session.getAttribute("error");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,10 +22,7 @@ Author     : Shxnna
         <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="wrapper">
-            <jsp:include page="includes/menu.jsp" />
-            <h2>Velkommen til johannesfog lav din egen carport side</h2>
-            <p class="pCenterAlign">Klik <a href="Login.jsp">her</a> for at logge ind og lav din egen carport, eller klik <a href="Registration.jsp">her</a> for at registrere dig.</p>
-        </div>
+        <h1>Hello World!</h1>
+        <h1><%=msg %></h1>
     </body>
 </html>
