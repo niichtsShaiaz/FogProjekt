@@ -25,11 +25,8 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginCommand extends Command{
 
-    static final Logger LOGGER = Logger.getLogger(LoginCommand.class.getName());
-    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response){
-        FileHandler fh;
         
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
@@ -37,24 +34,20 @@ public class LoginCommand extends Command{
         User user;
         try
         {
-            fh = new FileHandler("C:/Users/ezl/Desktop/Log/MyLogFile.log"); 
-            fh.setFormatter(new SimpleFormatter());
-            LOGGER.addHandler(fh);
-            
             user = UserFacade.login(email, password);
             session.setAttribute("User", user);
             return "Form";
         } catch (FogProjectException ex)
         {
-            LOGGER.log(Level.SEVERE, null, ex); 
+            try
+            {
+                MyLogger.log(ex, "LoginCommand");
+            } catch (IOException ex1){}
+            
             List<String> errorMsgList = errorMsgList = new ArrayList<String>();
             session.setAttribute("errorMsgList", errorMsgList);
-            
             errorMsgList.add("Forkert Email og eller Password, prøv igen eller kontakt support");
         }
-        catch (IOException e) {  
-            //LOGGER.log(Level.SEVERE, null, e); 
-        } 
         return "Login";
     }
     
