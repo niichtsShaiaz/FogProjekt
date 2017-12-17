@@ -24,7 +24,7 @@
             <h1>Alle ordrer</h1>
             <%for(int i = 0; i < ordersList.size(); i++){%>
             <div class="order">
-                <p class="pBold pCenterAlign toggle">Navn: <%=ordersList.get(i).getUser().getFirstName()%> <%=ordersList.get(i).getUser().getLastName()%>, Email: <%=ordersList.get(i).getUser().getEmail()%>, Tlf. <%=ordersList.get(i).getUser().getTelephone()%>, Addr. <%=ordersList.get(i).getUser().getAddress()%>, Mål: <%=ordersList.get(i).getWidth()%>x<%=ordersList.get(i).getLength()%>, <%if(ordersList.get(i).getRoof()){%>taghældning: <%=ordersList.get(i).getAngel()%> grader <%}%>, <%if(ordersList.get(i).getShed()){%>redskabsskur mål: <%=ordersList.get(i).getShedWidth()%>x<%=ordersList.get(i).getShedLength()%><%}%></p>
+                <p class="pBold pCenterAlign toggle">Navn: <%=ordersList.get(i).getUser().getFirstName()%> <%=ordersList.get(i).getUser().getLastName()%>, Email: <%=ordersList.get(i).getUser().getEmail()%>, Tlf. <%=ordersList.get(i).getUser().getTelephone()%>, Addr. <%=ordersList.get(i).getUser().getAddress()%>, Mål: <%=ordersList.get(i).getWidth()%>x<%=ordersList.get(i).getLength()%>, <%if(ordersList.get(i).getRoof()){%>taghældning: <%=ordersList.get(i).getAngel()%> grader <%}%>, <%if(ordersList.get(i).getShed()){%>redskabsskur mål: <%=ordersList.get(i).getShedWidth()%>x<%=ordersList.get(i).getShedLength()%><%}%>, <%=ordersList.get(i).isOrderStatus()%> Order status</p>
                 <div class="styklist">
                     <table class="table">
                         <thead>
@@ -45,9 +45,18 @@
                                 <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getEnhed()%></td>
                                 <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getComment()%></td>
                             </tr>
+                        
                             <%}%>
+                        
                         </tbody>
                     </table>
+                            <%
+                                if(!ordersList.get(i).isOrderStatus()){
+                            %>
+                            <a href="FrontController?command=ChangeOrderStatus&changeUserId=<%=ordersList.get(i).getUser().getId()%>&changeOrderId=<%=ordersList.get(i).getId()%>">Send Order</a>
+                            <%}else{%>
+                            <p>Order is sent</p>
+                            <%}%>
                 </div>
             </div>
             <%}%>

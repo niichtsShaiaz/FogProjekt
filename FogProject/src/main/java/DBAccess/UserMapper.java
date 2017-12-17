@@ -62,12 +62,4 @@ public class UserMapper {
         }
     }
     
-    public static void main(String[] args) {
-        try {
-            User user = login("jonatan@bakke.net", "1234");
-            System.out.println(user.getEmail());
-        } catch (FogProjectException ex) {
-            Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }
