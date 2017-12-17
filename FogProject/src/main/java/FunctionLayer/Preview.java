@@ -11,39 +11,87 @@ package FunctionLayer;
  */
 public class Preview {
     
-    public static String draw(int width, int length) {
+    public static String draw(int width, int length, boolean shed, int shedLength) {
          StringBuilder sb = new StringBuilder();
+         
+         
+          if (shed)
+         {
+          sb.append(shed(width,length,shedLength));
+             
+         }
          
          sb.append (cornerPoles(width, length));
          sb.append (poles(width, length));
+<<<<<<< HEAD
          
          sb.append (poles2(width, length)); //error når bredde er <= 300
          sb.append (outerLines(width, length));
          sb.append (flatRoof(width, length));
          sb.append (rem(width, length)); //error når bredde er <= 300
+=======
+         if (width > 300)
+         sb.append (poles2(width, length));
+         sb.append (outerLines(width, length));
+         sb.append (flatRoof(width, length));
+         if(width > 300)
+         sb.append (rem(width, length));
+         sb.append(rem2(width,length));
+         sb.append(arrows(width,length));
+         sb.append(arrowHead(width,length));
+         sb.append(text(width,length));
+         
+         
+        
+         
+>>>>>>> local-shai
        
+        return sb.toString();
+    }
+    public static String draw2(int width, int length, boolean shed, int shedLength){
+        StringBuilder sb = new StringBuilder();
+        sb.append(sideShed(width, length, shedLength));
+        sb.append(sidePoles(width, length));
+        sb.append(sideRoof(width, length));
+        sb.append(arrows2(width,length));
+         sb.append(arrowHead2(width,length));
+         sb.append(text2(width,length));
+        
         return sb.toString();
     }
     public static String rem(int width, int length){
         int space = 0;
         StringBuilder sb = new StringBuilder();
         
-        int j = (width) / 300 - 1;
         
-        if (j != 0)
-            space = width/(j+1);
-        else 
-            space = width;
         
+<<<<<<< HEAD
         for (int i = 600; i<=width; i+=300)
+=======
+        int j = 0;
+        j = (width) / 300 - 1;
+        space = width/(j+1);
+        
+        
+        for (int i = 599; i<width; i+=300)
+>>>>>>> local-shai
         {
-            sb.append( "<rect x='"+(length-length-10)+"' y='"+(space)+"' height='"+5+"' width='"+(length+12)+"' style='stroke:#000000; fill:#ff0000 '/>");
+            sb.append( "<rect x='"+(length-length-10+100+10)+"' y='"+(space+100)+"' height='"+5+"' width='"+(length)+"' style='stroke:#000000; fill:#ff0000 '/>");
             space += space;
         }
-        sb.append( "<rect x='"+(length-length-10)+"' y='"+(width-width+70)+"' height='"+5+"' width='"+(length+12)+"' style='stroke:#000000; fill:#ff0000 '/>");
-        sb.append( "<rect x='"+(length-length-10)+"' y='"+(width-70)+"' height='"+5+"' width='"+(length+12)+"' style='stroke:#000000; fill:#ff0000 '/>");
+        sb.append( "<rect x='"+(length-length-10+100+10)+"' y='"+(width-width+70+100)+"' height='"+5+"' width='"+(length)+"' style='stroke:#000000; fill:#ff0000 '/>");
+        sb.append( "<rect x='"+(length-length-10+100+10)+"' y='"+(width-70+100)+"' height='"+5+"' width='"+(length)+"' style='stroke:#000000; fill:#ff0000 '/>");
         System.out.println("j = "+j);
         System.out.println("space = " + space);
+        return sb.toString();
+    }
+    public static String rem2(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        
+        
+            sb.append( "<rect x='"+(100)+"' y='"+(width-width+70+100)+"' height='"+5+"' width='"+length+"' style='stroke:#000000; fill: #FF0000'/>");
+            sb.append( "<rect x='"+(100)+"' y='"+(width-70+100)+"' height='"+5+"' width='"+length+"' style='stroke:#000000; fill: #FF0000'/>");
+        
         return sb.toString();
     }
     public static String flatRoof(int width, int length){
@@ -51,7 +99,7 @@ public class Preview {
         
         
         for (int i = 55; i < length; i+=55) {
-            sb.append( "<rect x='"+(i)+"' y='"+(0)+"' height='"+width+"' width='"+2+"' style='stroke:#000000; fill: #8b4513'/>");
+            sb.append( "<rect x='"+(i+100)+"' y='"+(0+100)+"' height='"+width+"' width='"+2+"' style='stroke:#000000; fill: #8b4513'/>");
             
         }
         
@@ -60,10 +108,10 @@ public class Preview {
     public static String outerLines(int width, int length){
          StringBuilder sb = new StringBuilder();
 
-        sb.append( "<rect x='"+(length-length)+"' y='"+(width-width)+"' height='"+2+"' width='"+length+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length-length)+"' y='"+(width-width)+"' height='"+width+"' width='"+2+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length-length)+"' y='"+(width)+"' height='"+2+"' width='"+(length+2)+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length)+"' y='"+(width-width)+"' height='"+width+"' width='"+2+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-length+100)+"' y='"+(width-width+100)+"' height='"+2+"' width='"+length+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-length+100)+"' y='"+(width-width+100)+"' height='"+width+"' width='"+2+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-length+100)+"' y='"+(width+100)+"' height='"+2+"' width='"+(length+2)+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length+100)+"' y='"+(width-width+100)+"' height='"+width+"' width='"+2+"' style='stroke:#000000; fill: #000000'/>");
    
     
     return sb.toString();
@@ -75,10 +123,10 @@ public class Preview {
         
         StringBuilder sb = new StringBuilder();
 
-        sb.append( "<rect x='"+(length-length+10)+"' y='"+(width-width+70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length-10)+"' y='"+(width-width+70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length-length+10)+"' y='"+(width-70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-        sb.append( "<rect x='"+(length-10)+"' y='"+(width-70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-length+10+100)+"' y='"+(width-width+70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-25+100)+"' y='"+(width-width+70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-length+10+100)+"' y='"+(width-70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append( "<rect x='"+(length-25+100)+"' y='"+(width-70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
         
         return sb.toString();
     }
@@ -90,8 +138,13 @@ public class Preview {
         
         for (int i = 275; i<length-275; i+=275)
         {
+<<<<<<< HEAD
             sb.append( "<rect x='"+(i)+"' y='"+(width-width+70)+"' height='"+(sizeY)+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
             sb.append( "<rect x='"+(i)+"' y='"+(width-70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+=======
+            sb.append( "<rect x='"+(i+100)+"' y='"+(width-width+70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+            sb.append( "<rect x='"+(i+100)+"' y='"+(width-70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+>>>>>>> local-shai
         }
         
         return sb.toString();
@@ -110,17 +163,111 @@ public class Preview {
         else 
             space = width;
         
+<<<<<<< HEAD
         for (int i = 600; i<=width; i+=300)
+=======
+        for (int i = 599; i<width; i+=300)
+>>>>>>> local-shai
         {
-            sb.append( "<rect x='"+(length-10)+"' y='"+(space)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-            sb.append( "<rect x='"+(length-length+10)+"' y='"+(space)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+            sb.append( "<rect x='"+(length-10+100)+"' y='"+(space+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
+            sb.append( "<rect x='"+(length-length+10+100)+"' y='"+(space+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
             space += space;
         }
         System.out.println("j = "+j);
         System.out.println("space = " + space);
         return sb.toString();
     }
+    public static String shed(int width, int length, int shedLength){
+        StringBuilder sb = new StringBuilder();
         
+        sb.append( "<rect x='"+(length-shedLength-15+100)+"' y='"+(width-width+70+100)+"' height='"+(width-140)+"' width='"+(shedLength)+"' style='stroke:#000000; fill:#3d3d3d '/>");
+        return sb.toString();
+    }
+    public static String arrows(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<line x1='100' y1='80' x2='"+(length+100)+"' y2='80' style='stroke:rgb(0,0,0);stroke-width:2' />");
+        sb.append("<line x1='80' y1='100' x2='80' y2='"+(width+100) +"' style='stroke:rgb(0,0,0);stroke-width:2' />");
+        
+        return sb.toString();
+    }
+    public static String arrowHead(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<polygon points='100,80 110,70 110,90' style='fill:lime;stroke:purple;stroke-width:1' />");
+        sb.append("<polygon points='80,100, 90,110 70,110' style='fill:lime;stroke:purple;stroke-width:1' />");
+        
+        sb.append("<polygon points='"+(length+100)+",80 "+(length+90)+",70 "+(length+90)+",90' style='fill:lime;stroke:purple;stroke-width:1' />");
+        sb.append("<polygon points='80,"+(width+100)+", 90,"+(width+90)+" 70,"+(width+90)+"' style='fill:lime;stroke:purple;stroke-width:1' />");
+        
+        
+        return sb.toString();
+    }
+    public static String text(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("<text x='40' y='"+(width/2+100)+"' fill='black' transform='rotate(-90 40,"+(width/2+100)+")'> "+width+" cm</text>");
+        sb.append("<text x='"+(length/2+100)+"' y='60' fill='black'> "+length+" cm</text>");
+               
+        //<text x="0" y="15" fill="red">I love SVG!</text>
+        return sb.toString();
+    }
+    
+    public static String sidePoles(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        int height = 210;
+        
+        sb.append("<rect x='"+(length-length+10+100)+"' y='"+120+"' height='"+210+"' width='"+5+"' style='stroke:#000000; fill: #000000'/>");
+        sb.append("<rect x='"+(length-15+100)+"' y='"+120+"' height='"+210+"' width='"+5+"' style='stroke:#000000; fill: #000000'/>");
+        for (int i = 275; i<length-200; i+=275)
+        {
+            sb.append( "<rect x='"+(i+100)+"' y='"+(120)+"' height='210' width='5' style='stroke:#000000; fill: #000000'/>");
+            sb.append( "<rect x='"+(i+100)+"' y='"+(120)+"' height='210' width='5' style='stroke:#000000; fill: #000000'/>");
+        }
+        return sb.toString();
+    }
+    public static String sideRoof(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append( "<rect x='"+100+"' y='"+100+"' height='20' width='"+length+"' style='stroke:#000000; fill: #000000'/>");
+        
+        
+        
+        return sb.toString();
+    }
+    public static String sideShed(int width, int length, int shedWidth){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append( "<rect x='"+(length-shedWidth-15+100)+"' y='"+120+"' height='210' width='"+shedWidth+"' style='stroke:#000000; fill: #3b3b3b'/>");
+        
+        return sb.toString();
+    }
+    public static String arrows2(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<line x1='100' y1='80' x2='"+(length+100)+"' y2='80' style='stroke:rgb(0,0,0);stroke-width:2' />");
+        sb.append("<line x1='80' y1='100' x2='80' y2='"+(230+100) +"' style='stroke:rgb(0,0,0);stroke-width:2' />");
+        
+        return sb.toString();
+    }
+    public static String arrowHead2(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<polygon points='100,80 110,70 110,90' style='fill:lime;stroke:purple;stroke-width:1' />");
+        sb.append("<polygon points='80,100, 90,110 70,110' style='fill:lime;stroke:purple;stroke-width:1' />");
+        
+        sb.append("<polygon points='"+(length+100)+",80 "+(length+90)+",70 "+(length+90)+",90' style='fill:lime;stroke:purple;stroke-width:1' />");
+        sb.append("<polygon points='80,"+(230+100)+", 90,"+(230+90)+" 70,"+(230+90)+"' style='fill:lime;stroke:purple;stroke-width:1' />");
+        
+        
+        return sb.toString();
+    }
+    public static String text2(int width, int length){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("<text x='40' y='"+(230/2+100)+"' fill='black' transform='rotate(-90 40,"+(230/2+100)+")'> "+230+" cm</text>");
+        sb.append("<text x='"+(length/2+100)+"' y='60' fill='black'> "+length+" cm</text>");
+               
+        //<text x="0" y="15" fill="red">I love SVG!</text>
+        return sb.toString();
+    }
+    
     public static void main(String[] args) {
         
        // System.out.println(poles2(680,780));
