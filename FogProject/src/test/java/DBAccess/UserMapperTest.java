@@ -53,8 +53,7 @@ public class UserMapperTest {
         }
         // reset test database
         try ( Statement stmt = testConnection.createStatement() ) {
-            stmt.execute( "drop table if exists user" );
-            stmt.execute( "create table user like usertest" );
+            stmt.execute( "DELETE FROM user" );
             stmt.execute( "insert into user select * from usertest" );
         }
 

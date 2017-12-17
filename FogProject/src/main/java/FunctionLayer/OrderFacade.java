@@ -28,13 +28,13 @@ public class OrderFacade {
         return OrderMapper.getUserOrders(user);
     }
     
-    public static void changeOrderStatus(int userId){
-        OrderMapper.changeOrderStatus(userId);
+    public static void changeOrderStatus(int userId, int orderId){
+        OrderMapper.changeOrderStatus(userId, orderId);
     }
     
     public static void main(String[] args) throws FogProjectException
     {
-        changeOrderStatus(18);
+        
     }
     
 }

@@ -53,7 +53,7 @@
                             <%
                                 if(!ordersList.get(i).isOrderStatus()){
                             %>
-                            <a href="FrontController?command=ChangeOrderStatus&change=<%=ordersList.get(i).getUser().getId()%>">Send Order</a>
+                            <a href="FrontController?command=ChangeOrderStatus&changeUserId=<%=ordersList.get(i).getUser().getId()%>&changeOrderId=<%=ordersList.get(i).getId()%>">Send Order</a>
                             <%}else{%>
                             <p>Order is sent</p>
                             <%}%>

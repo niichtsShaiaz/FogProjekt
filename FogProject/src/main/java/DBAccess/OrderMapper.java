@@ -117,12 +117,13 @@ public class OrderMapper {
         }
     }
     
-    public static void changeOrderStatus(int userId){
+    public static void changeOrderStatus(int userId, int orderId){
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE `order` SET order_status = true WHERE fk_user_id = ?;";
+            String SQL = "UPDATE `order` SET order_status = true WHERE fk_user_id = ? AND order_id = ?;";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt(1, userId);
+            ps.setInt(2, orderId);
             ps.executeUpdate();
         } catch (ClassNotFoundException ex) {
             //Logger.getLogger(OrderMapper.class.getName()).log(Level.SEVERE, null, ex);

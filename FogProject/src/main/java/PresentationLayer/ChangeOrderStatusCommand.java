@@ -20,8 +20,9 @@ public class ChangeOrderStatusCommand extends Command{
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws FogProjectException {
         HttpSession session = request.getSession();
-        int changeId = Integer.parseInt(request.getParameter("change"));
-        OrderFacade.changeOrderStatus(changeId);
+        int changeUserId = Integer.parseInt(request.getParameter("changeUserId"));
+        int changeOrderId = Integer.parseInt(request.getParameter("changeOrderId"));
+        OrderFacade.changeOrderStatus(changeUserId, changeOrderId);
         session.setAttribute("ordersList", OrderFacade.getAllOrders());
         return "AllOrders";
     }

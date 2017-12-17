@@ -267,7 +267,10 @@ public class BillOfMaterial {
     public Material roofSpær(double width, double length, double angle){
         double SinusLength = Sinus(width/2, angle);
         int spærQty =  (int) Math.ceil(length / 89);
-        return new Material("Spær", "Wood", 10, SinusLength, 10, spærQty*2, 15, "Stk");
+        int træLængde = 30;
+        while(SinusLength > træLængde)
+            træLængde = træLængde + 30;
+        return new Material("Spær", "Wood", 10, træLængde, 10, spærQty*2, 15, "Stk");
     }
 
     //30.7     89
