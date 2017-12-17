@@ -479,7 +479,7 @@ public class BillOfMaterialTest {
             double width = 600;
             double length = 780;
              BillOfMaterial instance = new BillOfMaterial();
-            int expResult = 390;
+            int expResult = 7;
             Material result = instance.noRoofTagSkruer(width, length);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
@@ -496,7 +496,7 @@ public class BillOfMaterialTest {
             System.out.println("noRoofHulb\u00e5nd");
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 2;
-            Material result = instance.noRoofHulbånd();
+            Material result = instance.Hulbånd();
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
             assertTrue(false);
@@ -512,9 +512,10 @@ public class BillOfMaterialTest {
             System.out.println("noRoofBeslagTilRemH\u00f8jre");
             double width = 600;
             double length = 780;
+            boolean roof = true;
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 15;
-            Material result = instance.noRoofBeslagTilRemHøjre(width, length);
+            Material result = instance.beslagTilRemHøjre(width, length, roof);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
             assertTrue(false);
@@ -530,9 +531,10 @@ public class BillOfMaterialTest {
             System.out.println("noRoofBeslagTilRemVenstre");
             double width = 600;
             double length = 780;
+            boolean roof = true;
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 15;
-            Material result = instance.noRoofBeslagTilRemVenstre(width, length);
+            Material result = instance.beslagTilRemVenstre(width, length, roof);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
            assertTrue(false);
@@ -548,7 +550,7 @@ public class BillOfMaterialTest {
             System.out.println("noRoofSternOgVandbr\u00e6dtSkruer");
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 1;
-            Material result = instance.noRoofSternOgVandbrædtSkruer();
+            Material result = instance.sternOgVandbrædtSkruer();
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
             assertTrue(false);
@@ -563,8 +565,9 @@ public class BillOfMaterialTest {
         try {
             System.out.println("noRoofUniversalbeslagHulb\u00e5ndSkruer");
             BillOfMaterial instance = new BillOfMaterial();
+            boolean roof = true;
             int expResult = 1;
-            Material result = instance.noRoofUniversalbeslagHulbåndSkruer();
+            Material result = instance.universalbeslagHulbåndSkruer(roof);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
             assertTrue(false);
@@ -579,9 +582,11 @@ public class BillOfMaterialTest {
         try {
             System.out.println("noRoofBr\u00e6ddeBolte");
             double length = 780;
+            boolean shed = false;
+            double shedLength = 0;
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 18;
-            Material result = instance.noRoofBræddeBolte(length);
+            Material result = instance.bræddeBolte(length, shed, shedLength);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
             assertTrue(false);
@@ -596,9 +601,11 @@ public class BillOfMaterialTest {
         try {
             System.out.println("noRoofFirkantSkiver");
             double length = 780;
+            boolean shed = false;
+            double shedlength = 0;
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 12;
-            Material result = instance.noRoofFirkantSkiver(length);
+            Material result = instance.firkantSkiver(length, shed, shedlength);
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
            assertTrue(false);
@@ -614,7 +621,7 @@ public class BillOfMaterialTest {
             System.out.println("noRoofYdersteBekl\u00e6dningSkruer");
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 2;
-            Material result = instance.noRoofYdersteBeklædningSkruer();
+            Material result = instance.ydersteBeklædningSkruer();
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
             assertTrue(false);
@@ -630,7 +637,7 @@ public class BillOfMaterialTest {
             System.out.println("noRoofIndersteBekl\u00e6dningSkruer");
             BillOfMaterial instance = new BillOfMaterial();
             int expResult = 2;
-            Material result = instance.noRoofIndersteBeklædningSkruer();
+            Material result = instance.indersteBeklædningSkruer();
             assertEquals(expResult, result.getQty());
         } catch (FogProjectException ex) {
             assertTrue(false);

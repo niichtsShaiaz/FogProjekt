@@ -34,6 +34,22 @@ public class BillOfMaterial {
     public void createBillOfMaterialv2(double width, double height, double length, boolean roof, double angel, boolean shed, double shedLength)
     {
         materialList.add(stolper(length, shed, shedLength));
+        
+        //---
+        
+        
+        materialList.add(Hulbånd());
+        materialList.add(beslagTilRemHøjre(width, length, roof));
+        materialList.add(beslagTilRemVenstre(width, length, roof));
+        materialList.add(sternOgVandbrædtSkruer());
+        materialList.add(universalbeslagHulbåndSkruer(roof));
+        materialList.add(bræddeBolte(length, shed, shedLength));
+        materialList.add(firkantSkiver(length, shed, shedLength));
+        materialList.add(ydersteBeklædningSkruer());
+        materialList.add(indersteBeklædningSkruer());
+        materialList.add(staldDørsGreb());
+        materialList.add(tHængsel());
+            
         if(roof)
         {
             materialList.add(roofSpær(width, length, angel));
@@ -45,6 +61,7 @@ public class BillOfMaterial {
         {
             materialList.add(noRoofSpær(width, length));
             materialList.add(noRoofTag(width, length));
+            materialList.add(noRoofTagSkruer(width, length));
         }
         if(shed)
         {
@@ -55,6 +72,7 @@ public class BillOfMaterial {
             materialList.add(brætBeklædningAfSkur1Og2(shedLength));
             materialList.add(taglægteBagsidenAfDøren());
         }
+
     }
     
     //-+-+
@@ -315,82 +333,122 @@ public class BillOfMaterial {
         double arealm2 = (width * length) / 100;
         int skruerPerM2 = 12;
         double skruer50stkPris = 62.5;
-        int antalSkruer = (int) Math.ceil(arealm2 / skruerPerM2);
+        int antalSkruer = (int) (arealm2 / skruerPerM2) / 50;
         double totalPrisSkruer = (antalSkruer / 50) * skruer50stkPris;
         return new Material("Plastmo bundskruer 50 stk.", "Skruer til tagplader", 0, 0, 0, antalSkruer, totalPrisSkruer, "Pakke");
     }
     
     //Til vindkryds på spær
-    public Material noRoofHulbånd(){
+    public Material Hulbånd(){
         double rullePris = 250;
         int qty = 2;
         return new Material("Hulbånd 1x20mm 10 mtr.", "Til vindkryds på spær", 0, 0, 0, qty, rullePris*qty, "Rulle");
     }
     
     //Til montering af spær på rem højre
-    public Material noRoofBeslagTilRemHøjre(double width, double length){
-        int afstandMellemSpær = 55;
+    public Material beslagTilRemHøjre(double width, double length, boolean roof){
+        int afstandMellemSpær; 
+        if(roof)
+            afstandMellemSpær = 55;
+        else
+            afstandMellemSpær = 89;
+            
         int spærQty = (int) Math.ceil(length / afstandMellemSpær);
         int beslagPrisStk = 35;
         return new Material("Universal 190mm højre", "Til montering af spær på rem", 0, 0, 0, spærQty, beslagPrisStk, "Stk");
     }
     
     //Til montering af spær på rem venstre
-    public Material noRoofBeslagTilRemVenstre(double width, double length){
-        int afstandMellemSpær = 55;
+    public Material beslagTilRemVenstre(double width, double length, boolean roof){
+        int afstandMellemSpær;
+        if(roof)
+            afstandMellemSpær = 55;
+        else
+            afstandMellemSpær = 89;
+        
         int spærQty = (int) Math.ceil(length / afstandMellemSpær);
         int beslagPrisStk = 35;
         return new Material("Universal 190mm venstre", "Til montering af spær på rem", 0, 0, 0, spærQty, beslagPrisStk, "Stk");
     }
     
     //Til montering af stern&vandbrædt
-    public Material noRoofSternOgVandbrædtSkruer(){
+    public Material sternOgVandbrædtSkruer(){
         int pris250stk = 150;
         int qty = 1;
         return new Material("4,5 x 60 mm Skruer 250 stk", "Til montering af stern&vandbrædt", 0, 0, 0, qty, pris250stk*qty, "Pakke");
     }
     
     //Til montering af universalbeslag + hulbånd
-    public Material noRoofUniversalbeslagHulbåndSkruer(){
+    public Material universalbeslagHulbåndSkruer(boolean roof){
         int pris250stk = 100;
         int qty = 1;
-        return new Material("4,0 x 50 mm. beslagskruer 250 stk.", "Til montering af universalbeslag + hulbånd", 0, 0, 0, qty, pris250stk*qty, "Pakke");
+        if(roof)
+            return new Material("4,0 x 50 mm. beslagskruer 250 stk.", "Til montering af universalbeslag + hulbånd", 0, 0, 0, qty, pris250stk*qty, "Pakke");
+        else
+            return new Material("5,0 x 40 mm. beslagskruer 250 stk.", "Til montering af universalbeslag + hulbånd", 0, 0, 0, qty, pris250stk*qty, "Pakke");
+        
     }
     
     //Til montering af rem på stolper
-    public Material noRoofBræddeBolte(double length){
+    public Material bræddeBolte(double length, boolean shed, double shedLength){
         int boltePerStople = 3;
         int prisPerBolt = 5;
         int antalStopler = 4;
-        antalStopler += (length - 80 - 30) / 275;
+        if(shed)
+        {
+            antalStopler += ((length - shedLength - 275 - 80 - 30) / 275) * 2;
+            antalStopler += 7;
+        }
+        else
+            antalStopler += ((length - 275 - 80 - 30) / 275) * 2;
+        
         int qtyBolte = boltePerStople * antalStopler;
         int totalPris = qtyBolte * prisPerBolt;
         return new Material("Bræddebolt 10 x 120 mm.", "Til montering af rem på stolper", 0, 0, 0, qtyBolte, totalPris, "stk");
     }
     
     //Til montering af rem på stolper
-    public Material noRoofFirkantSkiver(double length){
+    public Material firkantSkiver(double length, boolean shed, double shedLength){
         int firkantSkivePris = 12;
         int firkantSkiverPerStople = 2;
         int antalStopler = 4;
-        antalStopler += (length - 80 - 30) / 275;
+        if(shed)
+        {
+            antalStopler += ((length - shedLength - 275 - 80 - 30) / 275) * 2;
+            antalStopler += 7;
+        }
+        else
+            antalStopler += ((length - 275 - 80 - 30) / 275) * 2;
+        
         int qtyFirkantSkiver = antalStopler * firkantSkiverPerStople;
         int totalPris = qtyFirkantSkiver * firkantSkivePris;
         return new Material("firkantskiver 40x40x11 mm", "Til montering af rem på stopler", 0, 0, 0, qtyFirkantSkiver, totalPris, "stk");
     }
     
     //Til montering af yderste beklædning
-    public Material noRoofYdersteBeklædningSkruer(){
+    public Material ydersteBeklædningSkruer(){
         int prisPer400stk = 600;
         int qty = 2;
         return new Material("4,5 x 70 mm. Skruer 400 stk.", "Til montering af yderste beklædning", 0, 0, 0, qty, prisPer400stk*qty, "Pakke");
     }
     
     //Til montering af inderste beklædning
-    public Material noRoofIndersteBeklædningSkruer(){
+    public Material indersteBeklædningSkruer(){
         int prisPer300stk = 400;
         int qty = 2;
           return new Material("4,5 x 50 mm. Skruer 300 stk.", "Til montering af inderste beklædning", 0, 0, 0, qty, prisPer300stk*qty, "Pakke");
+    }
+    
+    public Material staldDørsGreb(){
+        int qty = 1;
+        int pris = 90;
+        return new Material("Stalddørsgreb 50x75", "Til dør i skur", 0, 0, 0, qty, pris, "Sæt");
+    }
+    
+    public Material tHængsel(){
+        int qty = 2;
+        int pris = 70;
+        return new Material("T-hængsel 390 mm.", "Til dør i skur", 0, 0, 0, qty, pris, "Stk");
     }
 }
 
