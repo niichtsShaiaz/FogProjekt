@@ -8,8 +8,13 @@ package PresentationLayer;
 import FunctionLayer.FogProjectException;
 import FunctionLayer.User;
 import FunctionLayer.UserFacade;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,7 +24,7 @@ import javax.servlet.http.HttpSession;
  * @author jmb
  */
 public class RegisterCommand extends Command{
-
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
@@ -43,6 +48,7 @@ public class RegisterCommand extends Command{
         if(!errorMsgList.isEmpty())
                 return "Registration";
         
+        
         try{
             User user = UserFacade.register(email, password, firstName, lastName, telephone, address);
             session.setAttribute("User", user);
@@ -50,7 +56,10 @@ public class RegisterCommand extends Command{
         }
         catch(FogProjectException ex) // bliver stadig sendt til index
         {
-            System.out.println("----------------------||--------------------------");
+            try 
+            {
+                MyLogger.log(ex, "RegisterCommand");
+            } catch (IOException ex1){}
             errorMsgList.add("Der findes allerede en bruger med denne email");
         }
         return "Registration";

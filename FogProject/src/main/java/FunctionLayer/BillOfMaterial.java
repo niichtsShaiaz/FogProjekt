@@ -85,7 +85,7 @@ public class BillOfMaterial {
         material.setPrice(0);
         return material;
     }
-    
+
     //-+-+
     public Material sternBraedder(double length)
     {
@@ -274,7 +274,7 @@ public class BillOfMaterial {
     }    
     
     // tag med rejsning -- start --
-    private double Sinus(double sideA, double vinkelB)
+    public double Sinus(double sideA, double vinkelB)
     {
         double vinkelC = 90;
         double vinkelA = 180 - vinkelC - vinkelB;
@@ -326,7 +326,7 @@ public class BillOfMaterial {
     }
     
     
-    // ********************************** Beslag of Skruer til fladt tag ****************************************************
+    // ********************************** Beslag of Skruer ****************************************************
     
     //Skruer til tagplader
     public Material noRoofTagSkruer(double width, double length){

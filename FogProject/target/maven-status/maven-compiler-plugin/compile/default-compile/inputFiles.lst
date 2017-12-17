@@ -1,5 +1,6 @@
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\OrderFacade.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\Preview.java
+C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\MyLogger.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\DBAccess\MaterialMapper.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\UnknownCommand.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\ChangeOrderStatusCommand.java
@@ -21,6 +22,7 @@ C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\F
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\User.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\DBAccess\OrderMapper.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\CreateOrderCommand.java
+C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\configuration\Conf.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\AllOrdersCommand.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\PresentationLayer\LoginCommand.java
 C:\Users\Jbakke\Documents\NetBeansProjects\FogProjekt\FogProject\src\main\java\FunctionLayer\UserFacade.java
