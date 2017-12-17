@@ -13,9 +13,9 @@ import java.util.List;
  * @author Shxnna
  */
 public class OrderFacade {
-    public static void createOrder(double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, User user) throws FogProjectException
+    public static void createOrder(double width, double lenght, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, boolean orderStatus, User user) throws FogProjectException
     {
-        Order order = new Order(0, width, lenght, roof, angel, shed, shedWidth, shedLength, user);
+        Order order = new Order(0, width, lenght, roof, angel, shed, shedWidth, shedLength, orderStatus, user);
         OrderMapper.CreateOrder(order);
     }
     
@@ -28,12 +28,13 @@ public class OrderFacade {
         return OrderMapper.getUserOrders(user);
     }
     
+    public static void changeOrderStatus(int userId){
+        OrderMapper.changeOrderStatus(userId);
+    }
+    
     public static void main(String[] args) throws FogProjectException
     {
-        //User user = new User(1,"awdawd", "adwd", "adwd", "adwda", "awdwad", "adwd");
-        List<Order> orders = getAllOrders();
-        for(int i = 0; i < orders.size(); i++)
-            System.out.println("Order: " + orders.get(i).toString());
+        changeOrderStatus(18);
     }
     
 }
