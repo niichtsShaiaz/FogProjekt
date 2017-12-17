@@ -24,13 +24,6 @@ import java.util.logging.Logger;
  * @author Shxnna
  */
 public class OrderMapper {
-    private Connection con;
-        
-    public static List<Order> getOrders(int id) throws FogProjectException
-    {
-        List<Order> orders = new ArrayList<>();
-        return orders;
-    }
     
     public static List<Order> getAllOrders() throws FogProjectException
     {

@@ -22,4 +22,5 @@ PresentationLayer\LogOutCommand.class
 FunctionLayer\OrderFacade.class
 PresentationLayer\RegisterCommand.class
 FunctionLayer\User.class
+PresentationLayer\ChangeOrderStatusCommand.class
 PresentationLayer\Command.class

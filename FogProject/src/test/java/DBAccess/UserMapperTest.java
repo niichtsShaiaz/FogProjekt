@@ -53,8 +53,10 @@ public class UserMapperTest {
         }
         // reset test database
         try ( Statement stmt = testConnection.createStatement() ) {
+            stmt.execute( "DELETE FROM `order`" );
             stmt.execute( "DELETE FROM user" );
             stmt.execute( "insert into user select * from usertest" );
+            stmt.execute("insert into `order` select * from ordertest");
         }
 
     } catch ( ClassNotFoundException | SQLException ex ) {

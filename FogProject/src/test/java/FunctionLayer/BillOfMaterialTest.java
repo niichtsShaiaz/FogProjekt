@@ -77,6 +77,26 @@ public class BillOfMaterialTest {
             assertTrue(false);
         }
     }
+    
+    @Test
+    public void testCreateBillOfMaterialv22() {
+        try {
+            System.out.println("createBillOfMaterialv2 med skur");
+            double width = 360;
+            double height = 300;
+            double length = 730;
+            boolean roof = false;
+            double angel = 0;
+            boolean shed = true;
+            double shedLength = 0.0;
+            BillOfMaterial instance = new BillOfMaterial();
+            instance.createBillOfMaterialv2(width, height, length, roof, angel, shed, shedLength);
+            // TODO review the generated test code and remove the default call to fail.
+            assertTrue(instance.getBillOfMaterialList().size() > 0);
+        } catch (FogProjectException ex) {
+            assertTrue(false);
+        }
+    }
 
     /**
      * Test of vindskeder method, of class BillOfMaterial.
