@@ -38,7 +38,7 @@ public class LoginCommand extends Command{
             session.setAttribute("User", user);
             return "Form";
         } catch (FogProjectException ex)
-        {
+        { 
             try
             {
                 MyLogger.log(ex, "LoginCommand");

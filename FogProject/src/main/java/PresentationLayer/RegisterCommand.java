@@ -56,7 +56,7 @@ public class RegisterCommand extends Command{
         }
         catch(FogProjectException ex) // bliver stadig sendt til index
         {
-            try
+            try 
             {
                 MyLogger.log(ex, "RegisterCommand");
             } catch (IOException ex1){}

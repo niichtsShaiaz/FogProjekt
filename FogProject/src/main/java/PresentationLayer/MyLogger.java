@@ -28,7 +28,7 @@ public class MyLogger
             fh = new FileHandler("C:/Users/ezl/Desktop/Log/MyLogFile.log"); 
             fh.setFormatter(new SimpleFormatter());
             LOGGER.addHandler(fh);
-            bool = false;
+            bool = false; 
         }
         LOGGER.log(Level.SEVERE, str, ex); 
     }
