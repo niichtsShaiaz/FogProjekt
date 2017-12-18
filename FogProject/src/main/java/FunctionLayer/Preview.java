@@ -23,13 +23,6 @@ public class Preview {
          
          sb.append (cornerPoles(width, length));
          sb.append (poles(width, length));
-<<<<<<< HEAD
-         
-         sb.append (poles2(width, length)); //error når bredde er <= 300
-         sb.append (outerLines(width, length));
-         sb.append (flatRoof(width, length));
-         sb.append (rem(width, length)); //error når bredde er <= 300
-=======
          if (width > 300)
          sb.append (poles2(width, length));
          sb.append (outerLines(width, length));
@@ -40,12 +33,7 @@ public class Preview {
          sb.append(arrows(width,length));
          sb.append(arrowHead(width,length));
          sb.append(text(width,length));
-         
-         
-        
-         
->>>>>>> local-shai
-       
+
         return sb.toString();
     }
     public static String draw2(int width, int length, boolean shed, int shedLength){
@@ -63,18 +51,12 @@ public class Preview {
         int space = 0;
         StringBuilder sb = new StringBuilder();
         
-        
-        
-<<<<<<< HEAD
-        for (int i = 600; i<=width; i+=300)
-=======
         int j = 0;
         j = (width) / 300 - 1;
         space = width/(j+1);
         
         
         for (int i = 599; i<width; i+=300)
->>>>>>> local-shai
         {
             sb.append( "<rect x='"+(length-length-10+100+10)+"' y='"+(space+100)+"' height='"+5+"' width='"+(length)+"' style='stroke:#000000; fill:#ff0000 '/>");
             space += space;
@@ -138,13 +120,8 @@ public class Preview {
         
         for (int i = 275; i<length-275; i+=275)
         {
-<<<<<<< HEAD
-            sb.append( "<rect x='"+(i)+"' y='"+(width-width+70)+"' height='"+(sizeY)+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-            sb.append( "<rect x='"+(i)+"' y='"+(width-70)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
-=======
             sb.append( "<rect x='"+(i+100)+"' y='"+(width-width+70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
             sb.append( "<rect x='"+(i+100)+"' y='"+(width-70+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
->>>>>>> local-shai
         }
         
         return sb.toString();
@@ -162,12 +139,7 @@ public class Preview {
             space = width/(j+1);
         else 
             space = width;
-        
-<<<<<<< HEAD
-        for (int i = 600; i<=width; i+=300)
-=======
         for (int i = 599; i<width; i+=300)
->>>>>>> local-shai
         {
             sb.append( "<rect x='"+(length-10+100)+"' y='"+(space+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
             sb.append( "<rect x='"+(length-length+10+100)+"' y='"+(space+100)+"' height='"+sizeY+"' width='"+sizeX+"' style='stroke:#000000; fill: #000000'/>");
