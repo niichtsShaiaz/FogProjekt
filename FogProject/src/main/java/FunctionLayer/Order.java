@@ -25,6 +25,20 @@ public class Order
     private double shedLength;
     private boolean orderStatus;
 
+    /**
+     * This is an Order object that works with the FogProject Order table
+     * @param id
+     * @param width
+     * @param length
+     * @param roof
+     * @param angel
+     * @param shed
+     * @param shedWidth
+     * @param shedLength
+     * @param orderStatus
+     * @param user
+     * @throws FogProjectException 
+     */
     public Order(int id, double width, double length, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, boolean orderStatus, User user) throws FogProjectException
     {
         this.id = id;

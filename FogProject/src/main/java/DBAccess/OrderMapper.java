@@ -25,6 +25,11 @@ import java.util.logging.Logger;
  */
 public class OrderMapper {
     
+    /**
+     * This method retrieves all the orders from the order table in the FogProject database. 
+     * @return
+     * @throws FogProjectException 
+     */
     public static List<Order> getAllOrders() throws FogProjectException
     {
         try
@@ -65,7 +70,12 @@ public class OrderMapper {
         }
     }
     
-    
+    /**
+     * This method inserts a new order into the order table in the FogProject database.
+     * The order id in the order given will not be used since the value is auto-incremented in the table
+     * @param order
+     * @throws FogProjectException 
+     */
     public static void createOrder(Order order)throws FogProjectException {
         try {
             Connection con = Connector.connection();
@@ -86,6 +96,12 @@ public class OrderMapper {
         
     }
     
+    /**
+     * This method retrieves all the orders for a specific user from the order table.
+     * @param user
+     * @return
+     * @throws FogProjectException 
+     */
     public static List<Order> getUserOrders(User user)throws FogProjectException{
         List<Order> orderList = new ArrayList();
         Statement stm;
@@ -110,6 +126,12 @@ public class OrderMapper {
         }
     }
     
+    /**
+     * This method is used to change the order status of an order in the order table.
+     * It uses the userId and orderId til determine which order status to change.
+     * @param userId
+     * @param orderId 
+     */
     public static void changeOrderStatus(int userId, int orderId){
         try {
             Connection con = Connector.connection();

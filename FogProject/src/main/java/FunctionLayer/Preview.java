@@ -239,9 +239,4 @@ public class Preview {
         //<text x="0" y="15" fill="red">I love SVG!</text>
         return sb.toString();
     }
-    
-    public static void main(String[] args) {
-        
-       // System.out.println(poles2(680,780));
-    }
 }

@@ -21,6 +21,12 @@ public class MaterialMapper
 {
     private Connection con;
     
+    /**
+     * This method retrieves all the materials listed in the material table in the FogProject database.
+     * The key will be the name of the material and the value is the material it self.
+     * @return 
+     * @throws FogProjectException 
+     */
     public static HashMap<String, Material> getAllMaterials() throws FogProjectException
     {
         try{

@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *
- * @author ezl
+ * This class is used to calculate bill of material for a carport.
+ * @author jmb
  */
 public class BillOfMaterial {
     List<Material> materialList = new ArrayList<Material>();
@@ -21,16 +21,35 @@ public class BillOfMaterial {
     
     MaterialHashMap materialHMap = null;
     
+    /**
+     * Creates a new instance of BillOfMaterial with a MaterialHashMap embedded.
+     * @throws FogProjectException 
+     */
     public BillOfMaterial()throws FogProjectException
     {
         materialHMap = new MaterialHashMap();
     }
 
+    /**
+     * This method returns a material list
+     * @return 
+     */
     public List<Material> getBillOfMaterialList()
     {
         return materialList;
     }
     
+    /**
+     * This method fills the material list with all the material determined by the parameters.
+     * Must only be called once.
+     * @param width
+     * @param height
+     * @param length
+     * @param roof
+     * @param angel
+     * @param shed
+     * @param shedLength 
+     */
     public void createBillOfMaterialv2(double width, double height, double length, boolean roof, double angel, boolean shed, double shedLength)
     {
         materialList.add(stolper(length, shed, shedLength));
@@ -75,7 +94,13 @@ public class BillOfMaterial {
 
     }
     
-    //-+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @return 
+     */
     public Material vindskeder(double length)
     {
         Material material = materialHMap.getHmap("brædt25x150");
@@ -86,7 +111,13 @@ public class BillOfMaterial {
         return material;
     }
 
-    //-+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @return 
+     */
     public Material sternBraedder(double length)
     {
         Material material = materialHMap.getHmap("brædt25x150");
@@ -97,7 +128,13 @@ public class BillOfMaterial {
         return material;
     }
     
-    //skur -+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The shedLength parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param shedLength
+     * @return 
+     */
     public Material sternBraedderSkur(double shedLength)
     {
         int i = 1;
@@ -115,7 +152,11 @@ public class BillOfMaterial {
         return material;
     }
     
-    //-+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * Should not be called outside of BillOfMaterial.
+     * @return 
+     */
     public Material bygSelvSpaer()
     {
         Material material = materialHMap.getHmap("byg_selv spær");
@@ -125,7 +166,15 @@ public class BillOfMaterial {
         material.setPrice(0);
         return material;
     }
-    
+    /**
+     * This method returns a material object with custom comment, calculated quantity and price.
+     * The length, roof and shedLength parameters determines the materials quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @param shed
+     * @param shedLength
+     * @return 
+     */
     public Material stolper(double length, boolean shed, double shedLength)
     {
         int i = 4;
@@ -144,7 +193,13 @@ public class BillOfMaterial {
         material.setPrice(0);
         return material;
     }
-    
+    /**
+     * This method returns a material object with custom length and comment.
+     * The quantity will always be 2
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @return 
+     */
     public Material carportRemme(double length)
     {
         Material material = materialHMap.getHmap("spærtræ");
@@ -155,7 +210,13 @@ public class BillOfMaterial {
         return material;
     }
     
-    //skur -+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The shedLength parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param shedLength
+     * @return 
+     */
     public Material skurRemme(double shedLength)
     {
         int i = 1;
@@ -174,7 +235,14 @@ public class BillOfMaterial {
         return material;
     }
 
-    //skur -+-+
+    /**
+     * This method returns a material object with custom length, comment and price.
+     * The shedLength parameter determines the materials length
+     * The quantity will always be 4
+     * Should not be called outside of BillOfMaterial.
+     * @param shedLength
+     * @return 
+     */
     public Material reglarLøsholteISiderneAfSkuret(double shedLength)
     {
         Material material = materialHMap.getHmap("reglar");
@@ -185,7 +253,14 @@ public class BillOfMaterial {
         return material;
     }
 
-    //skur -+-+
+    /**
+     * This method returns a material object with custom length, comment and price.
+     * The shedLength parameter determines the materials length.
+     * The quantity will always be 6
+     * Should not be called outside of BillOfMaterial.
+     * @param shedLength
+     * @return 
+     */
     public Material reglarLøsholteIGavleAfSkuret(double shedLength)
     {
         Material material = materialHMap.getHmap("reglar");
@@ -196,7 +271,14 @@ public class BillOfMaterial {
         return material;
     }
 
-    //-+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Does not work atm
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @return 
+     */
     public Material vandBrætVindskeder(double length)
     {
         Material material = materialHMap.getHmap("brædt19x100");
@@ -207,7 +289,14 @@ public class BillOfMaterial {
         return material;
     }
 
-    //-+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * Does not work atm
+     * @param length
+     * @return 
+     */
     public Material brætBeklædningAfGavle1Og2(double length)
     {
         Material material = materialHMap.getHmap("brædt19x100");
@@ -218,7 +307,14 @@ public class BillOfMaterial {
         return material;
     }
 
-    //skur -+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The shedLength parameter determines the materials length.
+     * The quantity will always be 148.
+     * Should not be called outside of BillOfMaterial.
+     * @param shedLength
+     * @return 
+     */
     public Material brætBeklædningAfSkur1Og2(double shedLength)
     {
         Material material = materialHMap.getHmap("brædt19x100");
@@ -229,7 +325,14 @@ public class BillOfMaterial {
         return material;
     }
 
-    //-+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * Does not work atm
+     * @param length
+     * @return 
+     */
     public Material brætTilMonteringAfTagfodslægte(double length)
     {
         Material material = materialHMap.getHmap("brædt25x50");
@@ -240,7 +343,13 @@ public class BillOfMaterial {
         return material;
     }
 
-    // -+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * Does not work atm
+     * @return 
+     */
     public Material taglægteBagsidenAfDøren()
     {
         Material material = materialHMap.getHmap("taglægte");
@@ -251,7 +360,13 @@ public class BillOfMaterial {
         return material;
     }
 
-    // -+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * Does not work atm
+     * @return 
+     */
     public Material taglægteMonteringPåSpær()
     {
         Material material = materialHMap.getHmap("taglægte");
@@ -262,7 +377,13 @@ public class BillOfMaterial {
         return material;
     }
 
-    // -+-+
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * Does not work atm
+     * @return 
+     */
     public Material topLægteTilMonteringAfRygsten()
     {
         Material material = materialHMap.getHmap("taglægte");
@@ -282,6 +403,15 @@ public class BillOfMaterial {
         return res;
     }
     
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The width, length and angle parameters determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @param angle
+     * @return 
+     */
     public Material roofSpær(double width, double length, double angle){
         double SinusLength = Sinus(width/2, angle);
         int spærQty =  (int) Math.ceil(length / 89);
@@ -291,11 +421,27 @@ public class BillOfMaterial {
         return new Material("Spær", "Wood", 10, træLængde, 10, spærQty*2, 15, "Stk");
     }
 
-    //30.7     89
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The width and length parameters determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @return 
+     */
     public Material roofLægter(double width, double length){
         int lægterQty = (int) Math.ceil(width / 30.7);
         return new Material("Lægter", "Wood", 10, length, 10, lægterQty, 15, "Stk");
     }
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The width, length and angle parameters determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @param angle
+     * @return 
+     */
     public Material roofSten(double width, double length, double angle){
         double SinusLength = Sinus(width/2, angle);
         int spærQty = (int) Math.ceil(SinusLength / 30.7);
@@ -303,19 +449,41 @@ public class BillOfMaterial {
         int tagStenQty = (int) ((length / tagStensBrede) * (spærQty) + 6);
         return new Material("Tagsten", "Sten", tagStensBrede, 5, 35, tagStenQty*2, 15, "Stk");
     }
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The length parameter determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @return 
+     */
     public Material roofRygSten(double length){
         int rygTagStensLængde = 40;
         int rygTagStensQty = (int) (length / rygTagStensLængde) + 3;
         return new Material("Rygsten", "Sten", 20, 5, rygTagStensLængde, rygTagStensQty, 15, "Stk");
     }
     // tag med rejsning -- slut --
-    
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The width and length parameters determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @return 
+     */
     public Material noRoofSpær(double width, double length){
         int afstandMellemSpær = 55;
         int spærQty = (int) Math.ceil(length / afstandMellemSpær);
         return new Material("45x195mm. spærtræ ubh.", "Spær, monteres på rem", 10, width, 10, spærQty, 15, "Stk"); 
     }
     
+    /**
+     * This method returns a material object with custom length, comment, calculated quantity and price.
+     * The width and length parameters determines the materials length and quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @return 
+     */
     public Material noRoofTag(double width, double length){
         int plastmoEcoliteLængde = 0;
         int plastmoEcoliteBrede = 0;
@@ -329,6 +497,14 @@ public class BillOfMaterial {
     // ********************************** Beslag of Skruer ****************************************************
     
     //Skruer til tagplader
+    /**
+     * This method returns a material object with custom comment, calculated quantity and price.
+     * The width and length parameters determines the materials quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @return 
+     */
     public Material noRoofTagSkruer(double width, double length){
         double arealm2 = (width * length) / 100;
         int skruerPerM2 = 12;
@@ -339,6 +515,12 @@ public class BillOfMaterial {
     }
     
     //Til vindkryds på spær
+    /**
+     * This method returns a material object with custom comment and price.
+     * The quantity will always be 2
+     * Should not be called outside of BillOfMaterial.
+     * @return 
+     */
     public Material Hulbånd(){
         double rullePris = 250;
         int qty = 2;
@@ -346,6 +528,15 @@ public class BillOfMaterial {
     }
     
     //Til montering af spær på rem højre
+    /**
+     * This method returns a material object with custom comment, calculated quantity and price.
+     * The width, length and roof parameters determines the materials quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @param roof
+     * @return 
+     */
     public Material beslagTilRemHøjre(double width, double length, boolean roof){
         int afstandMellemSpær; 
         if(roof)
@@ -359,6 +550,15 @@ public class BillOfMaterial {
     }
     
     //Til montering af spær på rem venstre
+    /**
+     * This method returns a material object with custom comment, calculated quantity and price.
+     * The width, length and roof parameter determines the materials quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param width
+     * @param length
+     * @param roof
+     * @return 
+     */
     public Material beslagTilRemVenstre(double width, double length, boolean roof){
         int afstandMellemSpær;
         if(roof)
@@ -372,13 +572,27 @@ public class BillOfMaterial {
     }
     
     //Til montering af stern&vandbrædt
+    /**
+     * This method returns a material object with custom comment and price.
+     * The quantity will always be 1
+     * Should not be called outside of BillOfMaterial.
+     * @return 
+     */
     public Material sternOgVandbrædtSkruer(){
         int pris250stk = 150;
         int qty = 1;
         return new Material("4,5 x 60 mm Skruer 250 stk", "Til montering af stern&vandbrædt", 0, 0, 0, qty, pris250stk*qty, "Pakke");
     }
     
-    //Til montering af universalbeslag + hulbånd
+    //Til montering af universalbeslag + hulbån
+    /**
+     * This method returns a material object with custom comment and price.
+     * The roof parameter determines the materials comment
+     * The quantity will always be 1
+     * Should not be called outside of BillOfMaterial.
+     * @param roof
+     * @return 
+     */
     public Material universalbeslagHulbåndSkruer(boolean roof){
         int pris250stk = 100;
         int qty = 1;
@@ -390,6 +604,15 @@ public class BillOfMaterial {
     }
     
     //Til montering af rem på stolper
+    /**
+     * This method returns a material object with custom comment, calculated quantity and price.
+     * The length, shed and shedLength parameters determines the materials quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @param shed
+     * @param shedLength
+     * @return 
+     */
     public Material bræddeBolte(double length, boolean shed, double shedLength){
         int boltePerStople = 3;
         int prisPerBolt = 5;
@@ -408,6 +631,15 @@ public class BillOfMaterial {
     }
     
     //Til montering af rem på stolper
+    /**
+     * This method returns a material object with custom comment, calculated quantity and price.
+     * The length shed and shedLength parameters determines the materials quantity
+     * Should not be called outside of BillOfMaterial.
+     * @param length
+     * @param shed
+     * @param shedLength
+     * @return 
+     */
     public Material firkantSkiver(double length, boolean shed, double shedLength){
         int firkantSkivePris = 12;
         int firkantSkiverPerStople = 2;
@@ -426,6 +658,12 @@ public class BillOfMaterial {
     }
     
     //Til montering af yderste beklædning
+    /**
+     * This method returns a material object with custom comment and price.
+     * The quantity will always be 2
+     * Should not be called outside of BillOfMaterial.
+     * @return 
+     */
     public Material ydersteBeklædningSkruer(){
         int prisPer400stk = 600;
         int qty = 2;
@@ -433,18 +671,34 @@ public class BillOfMaterial {
     }
     
     //Til montering af inderste beklædning
+    /**
+     * This method returns a material object with custom length, comment and price.
+     * The quantity will always be 2
+     * Should not be called outside of BillOfMaterial.
+     * @return 
+     */
     public Material indersteBeklædningSkruer(){
         int prisPer300stk = 400;
         int qty = 2;
           return new Material("4,5 x 50 mm. Skruer 300 stk.", "Til montering af inderste beklædning", 0, 0, 0, qty, prisPer300stk*qty, "Pakke");
     }
-    
+    /**
+     * This method returns a material object with custom length, comment and price.
+     * The quantity will always be 1
+     * Should not be called outside of BillOfMaterial.
+     * @return 
+     */
     public Material staldDørsGreb(){
         int qty = 1;
         int pris = 90;
         return new Material("Stalddørsgreb 50x75", "Til dør i skur", 0, 0, 0, qty, pris, "Sæt");
     }
-    
+    /**
+     * This method returns a material object with custom length, comment and price.
+     * The quantity will always be 2
+     * Should not be called outside of BillOfMaterial.
+     * @return 
+     */
     public Material tHængsel(){
         int qty = 2;
         int pris = 70;

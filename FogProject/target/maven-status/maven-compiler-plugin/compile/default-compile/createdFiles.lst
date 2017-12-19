@@ -4,6 +4,7 @@ FunctionLayer\Material.class
 PresentationLayer\BillOfMaterialCommand.class
 PresentationLayer\DrawingCommand.class
 PresentationLayer\UserOrdersCommand.class
+PresentationLayer\MyLogger.class
 FunctionLayer\Preview.class
 FunctionLayer\UserFacade.class
 DBAccess\Connector.class
@@ -19,6 +20,7 @@ FunctionLayer\MaterialInterface.class
 DBAccess\OrderMapper.class
 PresentationLayer\AllOrdersCommand.class
 PresentationLayer\LogOutCommand.class
+configuration\Conf.class
 FunctionLayer\OrderFacade.class
 PresentationLayer\RegisterCommand.class
 FunctionLayer\User.class

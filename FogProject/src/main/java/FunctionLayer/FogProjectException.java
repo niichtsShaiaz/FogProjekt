@@ -9,6 +9,10 @@ package FunctionLayer;
  *
  * @author Jbakke
  */
+/**
+ * This is FogProjects own custom exception
+ * @author jmb
+ */
 public class FogProjectException extends Exception{
     public FogProjectException(String msg) {
         super(msg);

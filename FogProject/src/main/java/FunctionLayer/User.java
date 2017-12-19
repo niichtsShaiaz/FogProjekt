@@ -22,6 +22,16 @@ public class User {
     private String role;
     private List<Order> ordersList = new ArrayList<>();
 
+    /**
+     * This is an User object that works with the FogProject User table
+     * @param id
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param telephone
+     * @param address
+     * @param role 
+     */
     public User(int id, String email, String firstName, String lastName, String telephone, String address, String role) {
         this.id = id;
         this.email = email;
