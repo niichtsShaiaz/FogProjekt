@@ -66,7 +66,7 @@ public class OrderMapper {
     }
     
     
-    public static void CreateOrder(Order order)throws FogProjectException {
+    public static void createOrder(Order order)throws FogProjectException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `order` SET order_length = ?, order_width = ?, order_roof = ?, order_angel = ?, order_shed = ?, order_shedwidth = ?, order_shedlength = ?, fk_user_id = ?";
