@@ -90,7 +90,7 @@ public class OrderMapperTest {
         System.out.println("CreateOrder with correct user");
         User user = new User(1, "test@test.dk", "test", "test", "12345678", "testvejen 7", "Customer");
         Order order = new Order(0, 360, 780, true, 15, false, 0, 0, false, user);
-        OrderMapper.CreateOrder(order);
+        OrderMapper.createOrder(order);
     }
     
     @Test
@@ -99,7 +99,7 @@ public class OrderMapperTest {
         User user = new User(2, "test@test.dk", "test", "test", "12345678", "testvejen 7", "Customer");
         Order order = new Order(0, 360, 780, true, 15, false, 0, 0, false, user);
         try {
-        OrderMapper.CreateOrder(order);
+        OrderMapper.createOrder(order);
         }catch(Exception ex){
             assertTrue(true);
         }
