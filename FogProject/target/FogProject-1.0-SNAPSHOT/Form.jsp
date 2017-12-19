@@ -2,10 +2,16 @@
     int height = 240;
     int width = 240;
     int length = 240;
+    int angel = 0;
+    int shedWidth = 0;
     if (request.getParameter("width") != null)
         width = Integer.parseInt(request.getParameter("width"));
     if (request.getParameter("length") != null)
         length = Integer.parseInt(request.getParameter("length"));
+    if(request.getParameter("angel") != null)
+        angel = Integer.parseInt(request.getParameter("angel"));
+    if(request.getParameter("shedWidth") != null)
+        angel = Integer.parseInt(request.getParameter("shedWidth"));
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -71,7 +77,7 @@
                         <option value="0">Ønsker ikke tag med hældning</option>
                         <%for (int i = 15; i < 45; i += 5)
                         {%>
-                        <option value="<%=i%>"  <%if(Integer.parseInt(request.getParameter("angel")) == i && request.getParameter("roof") != null){%>selected<%}%>  ><%=i%></option>
+                        <option value="<%=i%>"  <%if(angel == i && request.getParameter("roof") != null){%>selected<%}%>  ><%=i%></option>
                         <%}%>
                     </select>
                 </div>
@@ -90,7 +96,7 @@
                         <option value="0">Ønsker ikke redskabsrum</option>
                         <%for (int i = 210; i < 720; i += 30)
                         {%>
-                            <option value="<%=i%>"  <%if(Integer.parseInt(request.getParameter("shedWidth")) == i && request.getParameter("shed") != null){%>selected<%}%> ><%=i%></option>
+                            <option value="<%=i%>"  <%if(shedWidth == i && request.getParameter("shed") != null){%>selected<%}%> ><%=i%></option>
                         <%}%>
                     </select>
                 </div>

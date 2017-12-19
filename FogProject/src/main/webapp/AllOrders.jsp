@@ -40,7 +40,11 @@
                             <%for(int i2 = 0; i2 < ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().size(); i2++){%>
                             <tr>
                                 <th><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getSideA()%>x<%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getLength()%>cm. <%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getName()%></th>
+                                <%if(ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getSideB() == 0){%>
+                                <td></td>
+                                <%}else{%>
                                 <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getSideB()%></td>
+                                <%}%>
                                 <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getQty()%></td>
                                 <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getEnhed()%></td>
                                 <td><%=ordersList.get(i).getBillOfMaterial().getBillOfMaterialList().get(i2).getComment()%></td>
