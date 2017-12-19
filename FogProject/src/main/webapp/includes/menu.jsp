@@ -11,7 +11,7 @@
 <nav>
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
-			<a class="nav-link" href="Form.jsp">Lav en carport med dine egne maal</a>
+			<a class="nav-link" href="Form.jsp">Lav en carport med dine egne mål</a>
 		</li>
                 <%if(loggedIn && role.equals("Employee")){%>
 		<li class="nav-item">
@@ -20,7 +20,7 @@
                 <%}%>
                 <%if(loggedIn){%>
                 <li class="nav-item">
-			<a class="nav-link" href="FrontController?command=UserOrders">My Orders</a> 
+			<a class="nav-link" href="FrontController?command=UserOrders">Mine ordrer</a> 
 		</li>
                 <%}%>
                 <%if(!loggedIn){%>
