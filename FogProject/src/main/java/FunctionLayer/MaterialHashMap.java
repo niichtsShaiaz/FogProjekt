@@ -30,4 +30,7 @@ public class MaterialHashMap
     {
         return new Material(key, hmap.get(key).getComment(), hmap.get(key).getSideA(), hmap.get(key).getSideB(), 0, 0, 0, hmap.get(key).getEnhed());
     }
+    public HashMap<String, Material> getMap(){
+        return hmap;
+    }
 }
