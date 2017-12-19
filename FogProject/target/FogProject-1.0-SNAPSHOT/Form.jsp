@@ -42,13 +42,6 @@
 
             <form action="FrontController" method="post">
                 <div class="form-group">
-                    <label>Højde</label>
-                    <select name="height">
-                        <option value="0">0</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label>Bredde</label>
                     <select name="width">
                         <%for (int i = 240; i <= 750; i += 30)
