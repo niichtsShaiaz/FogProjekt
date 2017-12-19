@@ -57,7 +57,7 @@ Author     : ezl
                     <input type="password" class="form-control" name="password" placeholder="********">
                 </div>
                 <div class="form-group">
-                    <label>Re-type Password</label>
+                    <label>Gentag Password</label>
                     <input type="password" class="form-control" name="password2" placeholder="********">
                 </div>
                 <%for (int i = 0; i < errorMsgList.size(); i++)
