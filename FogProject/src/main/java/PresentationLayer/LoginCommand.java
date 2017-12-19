@@ -38,8 +38,8 @@ public class LoginCommand extends Command{
             session.setAttribute("User", user);
             return "Form";
         } catch (FogProjectException ex)
-        { 
-            try
+        {  
+           try
             {
                 MyLogger.log(ex, "LoginCommand");
             } catch (IOException ex1){}
