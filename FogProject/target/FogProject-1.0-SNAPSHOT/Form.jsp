@@ -62,7 +62,7 @@
 
                 <div class="form-group">
                     <label>Tag med hældning?</label>
-                    <input type="checkbox" name="roof" class="form-control" value="1">
+                    <input type="checkbox" name="roof" class="form-control" value="1" <%if(request.getParameter("roof") != null){%>checked<%}%>>
                 </div>
 
                 <div class="form-group">
@@ -70,8 +70,8 @@
                     <select name="angel">
                         <option value="0">Ønsker ikke tag med hældning</option>
                         <%for (int i = 15; i < 45; i += 5)
-                {%>
-                        <option value="<%=i%>"><%=i%></option>
+                        {%>
+                        <option value="<%=i%>"  <%if(Integer.parseInt(request.getParameter("angel")) == i && request.getParameter("roof") != null){%>selected<%}%>  ><%=i%></option>
                         <%}%>
                     </select>
                 </div>
@@ -81,7 +81,7 @@
 
                 <div class="form-group">
                     <label>Redskabsrum?</label>
-                    <input type="checkbox" name="shed" class="form-control" value="1">
+                    <input type="checkbox" name="shed" class="form-control" value="1" <%if(request.getParameter("shed") != null){%>checked<%}%>>
                 </div>
 
                 <div class="form-group">
@@ -89,8 +89,8 @@
                     <select name="shedWidth">
                         <option value="0">Ønsker ikke redskabsrum</option>
                         <%for (int i = 210; i < 720; i += 30)
-                {%>
-                        <option value="<%=i%>"><%=i%></option>
+                        {%>
+                            <option value="<%=i%>"  <%if(Integer.parseInt(request.getParameter("shedWidth")) == i && request.getParameter("shed") != null){%>selected<%}%> ><%=i%></option>
                         <%}%>
                     </select>
                 </div>
@@ -100,8 +100,8 @@
                     <select name="shedLength">
                         <option value="0">Ønsker ikke redskabsrum</option>
                         <%for (int i = 210; i < 720; i += 30)
-                {%>
-                        <option value="<%=i%>"><%=i%></option>
+                        {%>
+                            <option value="<%=i%>" <%if(Integer.parseInt(request.getParameter("shedLength")) == i && request.getParameter("shed") != null){%>selected<%}%> ><%=i%></option>
                         <%}%>
                     </select>
                 </div>
@@ -112,6 +112,11 @@
             <%if(request.getAttribute("svgDrawing") != null){%>
                 <SVG width="500px" height="500px" viewBox='0 0 <%=length+30%> <%=width+10%>'>
                     <%=request.getAttribute("svgDrawing")%>
+                </SVG>
+            <%}%>
+            <%if(request.getAttribute("svgDrawing2") != null){%>
+                <SVG width="500px" height="500px" viewBox='0 0 <%=length+30%> <%=width+10%>'>
+                    <%=request.getAttribute("svgDrawing2")%>
                 </SVG>
             <%}%>
         </div>
