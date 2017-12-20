@@ -20,6 +20,18 @@ import java.util.logging.Logger;
  */
 public class UserMapper {
     
+    /**
+     * This method inserts a new user in the user table in the FogProject database.
+     * It is not possible to insert an user that already exists since email is unique.
+     * All the parameters are used to fill the table.
+     * @param email
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param telephone
+     * @param address
+     * @throws FogProjectException 
+     */
     public static void register(String email, String password, String firstName, String lastName, String telephone, String address) throws FogProjectException{
         try {
             Connection con = Connector.connection();
@@ -37,6 +49,14 @@ public class UserMapper {
         }
     }
     
+    /**
+     * This method retrieves an user if the given email and password is related to an user in the user table in the FogProject database.
+     * If the email or password is wrong a FogProjectException will be thrown with "Could not validate user".
+     * @param email
+     * @param password
+     * @return
+     * @throws FogProjectException 
+     */
     public static User login( String email, String password ) throws FogProjectException {
         try {
             Connection con = Connector.connection();
@@ -62,12 +82,4 @@ public class UserMapper {
         }
     }
     
-    public static void main(String[] args) {
-        try {
-            User user = login("jonatan@bakke.net", "1234");
-            System.out.println(user.getEmail());
-        } catch (FogProjectException ex) {
-            Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }

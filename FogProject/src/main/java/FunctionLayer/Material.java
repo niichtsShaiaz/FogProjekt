@@ -20,6 +20,17 @@ public class Material implements MaterialInterface{
     double price = 0;
     String enhed = "";
 
+    /**
+     * This is a Material object that works with the FogProject Material table
+     * @param name
+     * @param comment
+     * @param sideA
+     * @param sideB
+     * @param length
+     * @param qty
+     * @param price
+     * @param enhed 
+     */
     public Material(String name, String comment, double sideA, double sideB, double length, int qty, double price, String enhed) 
     {
         this.name = name;

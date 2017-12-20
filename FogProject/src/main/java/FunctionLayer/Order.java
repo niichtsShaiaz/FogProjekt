@@ -23,8 +23,23 @@ public class Order
     private boolean shed;
     private double shedWidth;
     private double shedLength;
+    private boolean orderStatus;
 
-    public Order(int id, double width, double length, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, User user) throws FogProjectException
+    /**
+     * This is an Order object that works with the FogProject Order table
+     * @param id
+     * @param width
+     * @param length
+     * @param roof
+     * @param angel
+     * @param shed
+     * @param shedWidth
+     * @param shedLength
+     * @param orderStatus
+     * @param user
+     * @throws FogProjectException 
+     */
+    public Order(int id, double width, double length, boolean roof, double angel, boolean shed, double shedWidth, double shedLength, boolean orderStatus, User user) throws FogProjectException
     {
         this.id = id;
         this.width = width;
@@ -34,6 +49,7 @@ public class Order
         this.shed = shed;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
+        this.orderStatus = orderStatus;
         this.user = user;
         //create bill of material here
         this.billOfMaterial = new BillOfMaterial();
@@ -134,6 +150,20 @@ public class Order
     {
         this.shedLength = shedLength;
     }
+
+    public boolean isRoof() {
+        return roof;
+    }
+
+    public boolean isShed() {
+        return shed;
+    }
+
+    public boolean isOrderStatus() {
+        return orderStatus;
+    }
+    
+    
 
     @Override
     public String toString()

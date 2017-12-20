@@ -27,4 +27,8 @@ public class Connector {
         }
         return singleton;
     }
+    
+    public static void setConnection(Connection con){
+        singleton = con;
+    }
 }

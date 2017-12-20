@@ -37,7 +37,7 @@ public class CreateOrderCommand extends Command
                     Double.parseDouble(request.getParameter("angel")),
                     shed,
                     Double.parseDouble(request.getParameter("shedWidth")),
-                    Double.parseDouble(request.getParameter("shedLength")),
+                    Double.parseDouble(request.getParameter("shedLength")), false,
                     (User)session.getAttribute("User")
             );
         }

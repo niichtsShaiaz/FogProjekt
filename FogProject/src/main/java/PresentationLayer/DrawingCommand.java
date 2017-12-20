@@ -7,6 +7,7 @@ package PresentationLayer;
 
 import FunctionLayer.FogProjectException;
 import static FunctionLayer.Preview.draw;
+import static FunctionLayer.Preview.draw2;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,8 +23,14 @@ public class DrawingCommand extends Command
     {
         int width = Integer.parseInt(request.getParameter("width"));
         int length = Integer.parseInt(request.getParameter("length"));
-        String str = draw(width, length);
+        boolean shed = false;
+        if(request.getParameter("shed") != null)
+            shed = true;
+        int shedLength = Integer.parseInt(request.getParameter("shedLength"));
+        String str = draw(width, length,shed,shedLength);
+        String str2 = draw2(width, length,shed,shedLength);
         request.setAttribute("svgDrawing", str);
+        request.setAttribute("svgDrawing2", str2);
         return "Form";
     }
     
