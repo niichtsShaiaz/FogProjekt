@@ -113,12 +113,12 @@
                 <button type="submit" name="command" value="Carport" class="btn btn-primary">Bestil Tilbud</button>
             </form>
             <%if(request.getAttribute("svgDrawing") != null){%>
-                <SVG width="500px" height="500px" viewBox='0 0 <%=length+30%> <%=width+10%>'>
+                <SVG width="500px" height="500px" viewBox='0 0 <%=length+150%> <%=width+150%>'>
                     <%=request.getAttribute("svgDrawing")%>
                 </SVG>
             <%}%>
             <%if(request.getAttribute("svgDrawing2") != null){%>
-                <SVG width="500px" height="500px" viewBox='0 0 <%=length+30%> <%=width+10%>'>
+                <SVG width="500px" height="500px" viewBox='0 0 <%=length+150%> <%=width+150%>'>
                     <%=request.getAttribute("svgDrawing2")%>
                 </SVG>
             <%}%>
