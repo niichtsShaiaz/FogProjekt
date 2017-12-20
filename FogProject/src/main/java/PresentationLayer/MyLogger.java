@@ -25,7 +25,7 @@ public class MyLogger
         if(bool)
         {
             FileHandler fh;
-            fh = new FileHandler("C:/Users/ezl/Desktop/Log/MyLogFile.log"); 
+            fh = new FileHandler("/var/log/tomcat8/MyLogFile.log"); 
             fh.setFormatter(new SimpleFormatter());
             LOGGER.addHandler(fh);
             bool = false; 
